@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "teste",
-    "slug": "teste",
+    "name": "Report Card",
+    "slug": "report-card",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#200004"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -23,11 +23,17 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
+        "backgroundColor": "#200004"
+      },
+      "package": "com.miguelpenha.ReportCard"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b28a8205-cfd1-4f25-8f9c-ab5ccf33af3a"
+      }
     }
   }
 }
