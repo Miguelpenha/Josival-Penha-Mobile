@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = api => {
   api.cache(true)
-  console.log(process.env.PATH_ENV_FILE)
+  
   return {
     presets: ['babel-preset-expo'],
     plugins: [
