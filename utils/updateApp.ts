@@ -7,7 +7,7 @@ async function updateApp(response?: boolean): Promise<void | boolean> {
     const { isAvailable } = await Updates.checkForUpdateAsync()
 
     if (isAvailable) {
-      if (Updates.releaseChannel === 'production') {
+      if (Updates.releaseChannel === 'production' || Updates.releaseChannel === 'main') {
         console.log(green('>> Update Available'))
 
         await Updates.fetchUpdateAsync()
