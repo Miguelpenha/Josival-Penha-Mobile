@@ -20,7 +20,13 @@ function Form() {
 
         if (authenticated) {
             SimpleToast.show('Login feito com sucesso!', SimpleToast.SHORT)
-            navigation.navigate('Class')
+
+            navigation.reset({
+                index: 0,
+                routes: [{
+                    name: 'Class'
+                }]
+            })
         } else {
             SimpleToast.show('Login ou senha inválidos', SimpleToast.SHORT)
         }
@@ -39,8 +45,10 @@ function Form() {
                 <Input
                     value={login}
                     autoComplete="email"
+                    autoCapitalize="none"
                     placeholder="Login..."
                     onChangeText={setLogin}
+                    cursorColor={theme.primary}
                     keyboardType="email-address"
                     selectionColor={theme.primary}
                     onSubmitEditing={onSubmitInput}
@@ -51,11 +59,11 @@ function Form() {
                 <Label>Senha</Label>
                 <Input
                     value={password}
-                    autoCapitalize="none"
                     placeholder="Senha..."
                     secureTextEntry={true}
                     autoComplete="password"
                     onChangeText={setPassword}
+                    cursorColor={theme.primary}
                     selectionColor={theme.primary}
                     onSubmitEditing={onSubmitInput}
                     placeholderTextColor={theme.primary}

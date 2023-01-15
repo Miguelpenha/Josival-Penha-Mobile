@@ -9,6 +9,7 @@ export interface ITheme {
 
 export type INavigation = {
   Login: undefined
+  SigIn: undefined
   Class: undefined
 }
 

@@ -29,7 +29,8 @@
     "react-native-screens": "~3.18.0",
     "react-native-simple-toast": "^2.0.0",
     "styled-components": "^5.3.6",
-    "expo-constants": "~14.0.2"
+    "expo-constants": "~14.0.2",
+    "expo-local-authentication": "~13.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
