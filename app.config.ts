@@ -34,7 +34,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     package: 'com.miguelpenha.ReportCard'
   },
   ios: {
-    bundleIdentifier: 'com.miguelpenha.ReportCard'
+    supportsTablet: true
   },
   web: {
     favicon: './assets/favicon.png'
