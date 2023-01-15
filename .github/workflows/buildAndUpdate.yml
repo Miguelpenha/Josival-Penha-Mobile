@@ -56,7 +56,7 @@ jobs:
           echo "${{ secrets.ENV_FILE}}" >> .env
 
       - name: Create build android
-        run: eas build --platform android --non-interactive
+        run: eas build --profile production --platform android --no-wait --non-interactive
 
       - name: Create update android
         run: eas update --auto
