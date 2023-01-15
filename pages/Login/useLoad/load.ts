@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction } from 'react'
-import axios from 'axios'
+import api from '../../../services/api'
 
 async function load(setLoading: Dispatch<SetStateAction<boolean>>) {
-    const { data } = await axios.get(`${process.env.API_URL}/public/Padrão.jpg`)
+    const { data } = await api.get('/teachers?count=true')
 
     if (data) {
         setLoading(true)
