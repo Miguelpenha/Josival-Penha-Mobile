@@ -26,15 +26,24 @@ function Form() {
         }
     }
 
+    async function onSubmitInput() {
+        if (password && login) {
+            await onPress()
+        }
+    }
+
     return (
         <Container entering={FadeInDown.delay(200).duration(400)}>
             <Field entering={FadeInDown.delay(300).duration(400)}>
                 <Label>Login</Label>
                 <Input
                     value={login}
+                    autoComplete="email"
                     placeholder="Login..."
                     onChangeText={setLogin}
+                    keyboardType="email-address"
                     selectionColor={theme.primary}
+                    onSubmitEditing={onSubmitInput}
                     placeholderTextColor={theme.primary}
                 />
             </Field>
@@ -48,6 +57,7 @@ function Form() {
                     autoComplete="password"
                     onChangeText={setPassword}
                     selectionColor={theme.primary}
+                    onSubmitEditing={onSubmitInput}
                     placeholderTextColor={theme.primary}
                 />
             </Field>

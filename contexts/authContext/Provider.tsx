@@ -1,5 +1,4 @@
 import { FC, useState, useEffect } from 'react'
-import { ITeacher } from '../../types'
 import api from '../../services/api'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import TypesContext from './Context'
@@ -9,24 +8,31 @@ interface Iprops {
 }
 
 const AuthProvider: FC<Iprops> = ({ children }) => {
-    const [teacherID, setTeacherID] = useState<string>()
+    const [teacherID, setTeacherID] = useState<string>(null)
     
     async function login(login: string, password: string) {
-        const { authenticated, teacher }: { authenticated: boolean, teacher: ITeacher } = (await api.post('/professoras/login', {
+        const { authenticated, teacherID }: { authenticated: boolean, teacherID: string } = (await api.post('/teachers/login', {
             login,
-            senha: password
+            password
         })).data
 
         if (authenticated) {
-            setTeacherID(teacher.id)
+            setTeacherID(teacherID)
 
-            await AsyncStorage.setItem('@reportCard:teacherID', teacher.id)
+            await AsyncStorage.setItem('@reportCard:teacherID', teacherID)
 
             return { authenticated: true }
         } else {
             return { authenticated: false }
         }
     }
+
+    async function logout() {
+        setTeacherID(null)
+
+        await AsyncStorage.removeItem('@reportCard:teacherID')
+    }
+
     useEffect(() => {
         async function load() {
             const teacherIDRaw = await AsyncStorage.getItem('@reportCard:teacherID')
@@ -40,7 +46,7 @@ const AuthProvider: FC<Iprops> = ({ children }) => {
     }, [])
     
     return (
-        <TypesContext.Provider value={{ login, teacherID }}>
+        <TypesContext.Provider value={{ login, logout, teacherID }}>
            {children}
         </TypesContext.Provider>
     )
