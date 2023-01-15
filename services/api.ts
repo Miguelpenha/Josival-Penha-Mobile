@@ -1,9 +1,10 @@
 import axios from 'axios'
+import Constants from 'expo-constants'
 
 const api = axios.create({
-    baseURL: process.env.API_URL,
+    baseURL: Constants.expoConfig?.extra?.API_URL,
     headers: {
-        authorization: `key ${process.env.API_KEY}`
+        authorization: `key ${Constants.expoConfig?.extra?.API_KEY}`
     }
 })
 
