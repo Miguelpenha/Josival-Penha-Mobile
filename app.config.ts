@@ -33,6 +33,9 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     },
     package: 'com.miguelpenha.ReportCard'
   },
+  ios: {
+    bundleIdentifier: 'com.miguelpenha.ReportCard'
+  },
   web: {
     favicon: './assets/favicon.png'
   },
