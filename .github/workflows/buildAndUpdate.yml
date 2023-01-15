@@ -1,11 +1,18 @@
-name: build
+name: build and update
 on: push
 
 jobs:
   build:
-    name: EAS build android
+    name: EAS build and update android
     runs-on: ubuntu-latest
     steps:
+      - name: Check for ENV_FILE
+        run: |
+          if [ -z "${{ secrets.ENV_FILE }}" ]; then
+            echo "ENV_FILE is missing"
+            exit 1
+          fi
+    
       - name: Check for EXPO_TOKEN
         run: |
           if [ -z "${{ secrets.EXPO_TOKEN }}" ]; then
@@ -43,5 +50,13 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
+      - name: Create .env File
+        run: |
+          touch .env
+          echo "${{ secrets.ENV_FILE}}" >> .env
+
       - name: Create build android
-        run: npm run build:noWait
+        run: eas build --platform all --non-interactive
+
+      - name: Create update android
+        run: eas update --auto

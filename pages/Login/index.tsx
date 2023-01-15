@@ -11,7 +11,7 @@ function Login() {
   if (loading) {
     return (
       <Container>
-        <Title entering={FadeInDown}>Login</Title>
+        <Title entering={FadeInDown}>Login 2</Title>
         <Form/>
       </Container>
     )
