@@ -1,67 +1,28 @@
-import useAuth from '../../contexts/authContext'
+import useLoad from './useLoad'
 import { useNavigation } from '@react-navigation/native'
-import { useState, useEffect } from 'react'
-import SimpleToast from 'react-native-simple-toast'
-import { hasHardwareAsync, isEnrolledAsync, authenticateAsync } from 'expo-local-authentication'
+import useGoogle from './useGoogle'
 import ContainerPd from '../../components/ContainerPd'
-import HeaderBack from '../../components/HeaderBack'
+import { Title } from './style'
+import { FadeInDown } from 'react-native-reanimated'
 import Button from './Button'
+import Loading from '../../components/Loading'
 
 function SigIn() {
-    const { logout } = useAuth()
+    const loading = useLoad()
     const navigation = useNavigation()
-    const [supportFingerprint, setSupportFingerprint] = useState<boolean>()
+    const { loginGoogle } = useGoogle()
 
-    useEffect(() => {
-        hasHardwareAsync().then(async support => {
-            if (support) {
-                setSupportFingerprint(await isEnrolledAsync())
-            } else {
-                setSupportFingerprint(false)
-            }
-        })
-    }, [])
-
-    async function onPressLogout() {
-        await logout()
-
-        navigation.navigate('Login')
-
-        SimpleToast.show('Logout feito!', SimpleToast.SHORT)
+    if (loading) {
+        return (
+            <ContainerPd>
+                <Title entering={FadeInDown}>Entrar</Title>
+                <Button index={1} icon="login" onPress={() => navigation.navigate('Login')}>Login</Button>
+                <Button index={2} typeIcon="AntDesign" icon="google" onPress={loginGoogle}>Google</Button>
+            </ContainerPd>
+        )
+    } else {
+        return <Loading/>
     }
-    
-    async function onPressFingerprint() {
-        const { success } = await authenticateAsync({ promptMessage: 'Digital', cancelLabel: 'Cancelar', disableDeviceFallback: true })
-
-        if (success) {
-            navigation.reset({
-                index: 0,
-                routes: [{
-                    name: 'Class'
-                }]
-            })
-
-            SimpleToast.show('SigIn feito!', SimpleToast.SHORT)
-        } else {
-            SimpleToast.show('Digital não reconhecida', SimpleToast.SHORT)
-        }
-    }
-
-    return (
-        <ContainerPd>
-            <HeaderBack onPress={onPressLogout}>Logout</HeaderBack>
-            {supportFingerprint ? (
-                <Button icon="fingerprint" onPress={onPressFingerprint}>Digital</Button>
-            ) : (
-                <Button icon="login" onPress={() => navigation.reset({
-                    index: 0,
-                    routes: [{
-                        name: 'Class'
-                    }]
-                })}>Entrar</Button>
-            )}
-        </ContainerPd>
-    )
 }
 
 export default SigIn

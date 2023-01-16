@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
 import Animated from 'react-native-reanimated'
 import { TouchableOpacity } from 'react-native'
-import { MaterialIcons } from '@expo/vector-icons'
+import { MaterialIcons, AntDesign } from '@expo/vector-icons'
 import { RFPercentage } from 'react-native-responsive-fontsize'
 
 export const Container = styled(Animated.createAnimatedComponent(TouchableOpacity))`
@@ -16,7 +16,12 @@ export const Container = styled(Animated.createAnimatedComponent(TouchableOpacit
     background-color: ${props => props.theme.backgroundColorSecondary};
 `
 
-export const Icon = styled(MaterialIcons)`
+export const IconMaterial = styled(MaterialIcons)`
+    margin-right: 8%;
+    color: ${props => props.theme.primary};
+`
+
+export const IconAnt = styled(AntDesign)`
     margin-right: 8%;
     color: ${props => props.theme.primary};
 `

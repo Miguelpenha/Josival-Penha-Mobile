@@ -1,20 +1,26 @@
-import { MaterialIcons } from '@expo/vector-icons'
+import { MaterialIcons, AntDesign } from '@expo/vector-icons'
 import { FC } from 'react'
-import { Container, Icon, Text } from './style'
 import useAnimation from './useAnimation'
+import { Container, IconMaterial, IconAnt, Text } from './style'
 
 interface IProps {
+    index: number
     children: string
     onPress: () => void
-    icon: keyof typeof MaterialIcons.glyphMap
+    typeIcon?: 'MaterialIcons' | 'AntDesign'
+    icon: keyof typeof MaterialIcons.glyphMap | keyof typeof AntDesign.glyphMap
 }
 
-const Button: FC<IProps> = ({ onPress, icon, children }) => {
-    const animation = useAnimation(onPress)
+const Button: FC<IProps> = ({ index, onPress, typeIcon='MaterialIcons', icon, children }) => {
+    const animation = useAnimation(index, onPress)
 
     return (
         <Container {...animation}>
-            <Icon name={icon} size={30}/>
+            {typeIcon == 'MaterialIcons' ? (
+                <IconMaterial name={icon} size={30}/>
+            ) : (
+                <IconAnt name={icon} size={30}/>
+            )}
             <Text>{children}</Text>
         </Container>
     )

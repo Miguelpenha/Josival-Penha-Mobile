@@ -3,7 +3,7 @@ import { TouchableOpacityProps } from 'react-native'
 import { useSharedValue, useAnimatedStyle } from 'react-native-reanimated'
 import events from './events'
 
-function useAnimation(onPress: () => void): AnimateProps<TouchableOpacityProps> {
+function useAnimation(index: number, onPress: () => void): AnimateProps<TouchableOpacityProps> {
     const scale = useSharedValue(1)
 
     const animationScale = useAnimatedStyle(() => ({
@@ -14,7 +14,7 @@ function useAnimation(onPress: () => void): AnimateProps<TouchableOpacityProps> 
         activeOpacity: 0.5,
         style: animationScale,
         ...events(scale, onPress),
-        entering: FadeInDown.delay(500).duration(400)
+        entering: FadeInDown.delay((index*100)+200).duration(400)
     }
 }
 

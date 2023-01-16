@@ -8,6 +8,9 @@ dotenv.config({
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
+  scheme: 'report-card',
+  originalFullName: '@miguelpenha/report-card',
+  currentFullName: '@miguelpenha/report-card',
   name: 'Report Card',
   slug: 'report-card',
   version: '1.0.0',
@@ -31,7 +34,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       foregroundImage: './assets/adaptive-icon.png',
       backgroundColor: '#200004'
     },
-    package: 'com.miguelpenha.ReportCard'
+    package: 'com.josivalpenha.ReportCard'
   },
   ios: {
     supportsTablet: true

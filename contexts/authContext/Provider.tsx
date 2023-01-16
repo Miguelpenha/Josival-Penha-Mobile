@@ -10,10 +10,26 @@ interface Iprops {
 const AuthProvider: FC<Iprops> = ({ children }) => {
     const [teacherID, setTeacherID] = useState<string>(null)
     
-    async function login(login: string, password: string) {
-        const { authenticated, teacherID }: { authenticated: boolean, teacherID: string } = (await api.post('/teachers/login', {
+    async function loginLocal(login: string, password: string) {
+        const { authenticated, teacherID }: { authenticated: boolean, teacherID: string } = (await api.post('/teachers/login/local', {
             login,
             password
+        })).data
+
+        if (authenticated) {
+            setTeacherID(teacherID)
+
+            await AsyncStorage.setItem('@reportCard:teacherID', teacherID)
+
+            return { authenticated: true }
+        } else {
+            return { authenticated: false }
+        }
+    }
+
+    async function loginGoogle(accessToken: string) {
+        const { authenticated, teacherID }: { authenticated: boolean, teacherID: string } = (await api.post('/teachers/login/google', {
+            accessToken
         })).data
 
         if (authenticated) {
@@ -46,7 +62,7 @@ const AuthProvider: FC<Iprops> = ({ children }) => {
     }, [])
     
     return (
-        <TypesContext.Provider value={{ login, logout, teacherID }}>
+        <TypesContext.Provider value={{ loginLocal, logout, loginGoogle, teacherID }}>
            {children}
         </TypesContext.Provider>
     )

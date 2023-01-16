@@ -1,42 +1,16 @@
-import useAuth from '../../../contexts/authContext'
-import SimpleToast from 'react-native-simple-toast'
-import { useNavigation } from '@react-navigation/native'
 import { useState } from 'react'
 import { useTheme } from 'styled-components'
+import useLocal from './useLocal'
 import { Container, Field, Label } from './style'
 import { FadeInDown } from 'react-native-reanimated'
 import Input from './Input'
 import ButtonSubmit from './ButtonSubmit'
 
 function Form() {
-    const { login: loginFunction } = useAuth()
-    const navigation = useNavigation()
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
     const theme = useTheme()
-
-    async function onPress() {
-        const { authenticated } = await loginFunction(login, password)
-
-        if (authenticated) {
-            SimpleToast.show('Login feito com sucesso!', SimpleToast.SHORT)
-
-            navigation.reset({
-                index: 0,
-                routes: [{
-                    name: 'Class'
-                }]
-            })
-        } else {
-            SimpleToast.show('Login ou senha inválidos', SimpleToast.SHORT)
-        }
-    }
-
-    async function onSubmitInput() {
-        if (password && login) {
-            await onPress()
-        }
-    }
+    const { loginLocal } = useLocal(login, password)
 
     return (
         <Container entering={FadeInDown.delay(200).duration(400)}>
@@ -50,8 +24,8 @@ function Form() {
                     onChangeText={setLogin}
                     cursorColor={theme.primary}
                     keyboardType="email-address"
+                    onSubmitEditing={loginLocal}
                     selectionColor={theme.primary}
-                    onSubmitEditing={onSubmitInput}
                     placeholderTextColor={theme.primary}
                 />
             </Field>
@@ -64,12 +38,12 @@ function Form() {
                     autoComplete="password"
                     onChangeText={setPassword}
                     cursorColor={theme.primary}
+                    onSubmitEditing={loginLocal}
                     selectionColor={theme.primary}
-                    onSubmitEditing={onSubmitInput}
                     placeholderTextColor={theme.primary}
                 />
             </Field>
-            <ButtonSubmit onPress={onPress}/>
+            <ButtonSubmit onPress={loginLocal}/>
         </Container>
     )
 }

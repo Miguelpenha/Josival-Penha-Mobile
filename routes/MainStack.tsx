@@ -1,6 +1,5 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import { INavigation } from '../types'
-import SigIn from '../pages/SigIn'
 import Class from '../pages/Class'
 
 function MainStack() {
@@ -8,12 +7,11 @@ function MainStack() {
     
     return (
         <Navigator
-            initialRouteName="SigIn"
+            initialRouteName="Class"
             screenOptions={{
                 headerShown: false
             }}
         >
-            <Screen name="SigIn" component={SigIn}/>
             <Screen name="Class" component={Class}/>
         </Navigator>
     )

@@ -1,5 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import { INavigation } from '../types'
+import SigIn from '../pages/SigIn'
 import Login from '../pages/Login'
 
 function InitialStack() {
@@ -7,11 +8,12 @@ function InitialStack() {
     
     return (
         <Navigator
-            initialRouteName="Login"
+            initialRouteName="SigIn"
             screenOptions={{
                 headerShown: false
             }}
         >
+            <Screen name="SigIn" component={SigIn}/>
             <Screen name="Login" component={Login}/>
         </Navigator>
     )
