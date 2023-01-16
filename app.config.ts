@@ -34,7 +34,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       foregroundImage: './assets/adaptive-icon.png',
       backgroundColor: '#200004'
     },
-    package: 'com.josivalpenha.ReportCard'
+    package: 'com.josivalpenha.report.card'
   },
   ios: {
     supportsTablet: true
