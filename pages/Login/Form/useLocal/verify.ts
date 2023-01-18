@@ -1,7 +1,7 @@
 import { IAuthContext } from '../../../../contexts/authContext/type'
 import SimpleToast from 'react-native-simple-toast'
 
-async function verify(loginLocal: IAuthContext['loginLocal'], login: string, password: string) {
+async function verify(loginLocal: IAuthContext['teacher']['loginLocal'] | IAuthContext['admin']['loginLocal'], login: string, password: string) {
     if (login && password) {
         const { authenticated } = await loginLocal(login, password)
 

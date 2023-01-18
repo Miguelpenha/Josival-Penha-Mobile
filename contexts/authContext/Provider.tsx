@@ -8,9 +8,10 @@ interface Iprops {
 }
 
 const AuthProvider: FC<Iprops> = ({ children }) => {
+    const [isAdmin, setIsAdmin] = useState(false)
     const [teacherID, setTeacherID] = useState<string>(null)
     
-    async function loginLocal(login: string, password: string) {
+    async function loginLocalTeacher(login: string, password: string) {
         const { authenticated, teacherID }: { authenticated: boolean, teacherID: string } = (await api.post('/teachers/login/local', {
             login,
             password
@@ -27,7 +28,7 @@ const AuthProvider: FC<Iprops> = ({ children }) => {
         }
     }
 
-    async function loginGoogle(accessToken: string) {
+    async function loginGoogleTeacher(accessToken: string) {
         const { authenticated, teacherID }: { authenticated: boolean, teacherID: string } = (await api.post('/teachers/login/google', {
             accessToken
         })).data
@@ -43,18 +44,60 @@ const AuthProvider: FC<Iprops> = ({ children }) => {
         }
     }
 
-    async function logout() {
+    async function logoutTeacher() {
         setTeacherID(null)
 
         await AsyncStorage.removeItem('@reportCard:teacherID')
     }
 
+    async function loginLocalAdmin(login: string, password: string) {
+        const { authenticated }: { authenticated: boolean } = (await api.post('/admin/login/local', {
+            login,
+            password
+        })).data
+
+        if (authenticated) {
+            setIsAdmin(authenticated)
+
+            await AsyncStorage.setItem('@reportCard:isAdmin', String(authenticated))
+
+            return { authenticated: true }
+        } else {
+            return { authenticated: false }
+        }
+    }
+
+    async function loginGoogleAdmin(accessToken: string) {
+        const { authenticated }: { authenticated: boolean } = (await api.post('/admin/login/google', {
+            accessToken
+        })).data
+
+        if (authenticated) {
+            setIsAdmin(authenticated)
+
+            await AsyncStorage.setItem('@reportCard:isAdmin', String(authenticated))
+
+            return { authenticated: true }
+        } else {
+            return { authenticated: false }
+        }
+    }
+
+    async function logoutAdmin() {
+        setIsAdmin(false)
+
+        await AsyncStorage.removeItem('@reportCard:isAdmin')
+    }
+
     useEffect(() => {
         async function load() {
-            const teacherIDRaw = await AsyncStorage.getItem('@reportCard:teacherID')
+            const isAdminRaw = await AsyncStorage.getItem('@reportCard:teacherID')
+            const teacherIDRaw = await AsyncStorage.getItem('@reportCard:isAdmin')
 
             if (teacherIDRaw) {
                 setTeacherID(teacherIDRaw)
+            } else if (isAdminRaw) {
+                setIsAdmin(Boolean(isAdminRaw))
             }
         }
 
@@ -62,7 +105,20 @@ const AuthProvider: FC<Iprops> = ({ children }) => {
     }, [])
     
     return (
-        <TypesContext.Provider value={{ loginLocal, logout, loginGoogle, teacherID }}>
+        <TypesContext.Provider value={{
+            isAdmin,
+            teacherID,
+            admin: {
+                logout: logoutAdmin,
+                loginLocal: loginLocalAdmin,
+                loginGoogle: loginGoogleAdmin
+            },
+            teacher: {
+                logout: logoutTeacher,
+                loginLocal: loginLocalTeacher,
+                loginGoogle: loginGoogleTeacher
+            }
+        }}>
            {children}
         </TypesContext.Provider>
     )

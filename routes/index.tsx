@@ -3,12 +3,13 @@ import useAuth from '../contexts/authContext'
 import { StatusBar } from 'expo-status-bar'
 import { NavigationContainer } from '@react-navigation/native'
 import themeRouter from './theme'
+import AdminStack from './AdminStack'
+import TeacherStack from './TeacherStack'
 import InitialStack from './InitialStack'
-import MainStack from './MainStack'
 
 function Routes() {
   const theme = useTheme()
-  const { teacherID } = useAuth()
+  const { isAdmin, teacherID } = useAuth()
 
   return (
     <>
@@ -18,7 +19,9 @@ function Routes() {
         backgroundColor={theme.backgroundColor}
       />
       <NavigationContainer theme={themeRouter}>
-        {!teacherID ? <InitialStack/> : <MainStack/>}
+        {isAdmin ? <AdminStack/> : (
+          teacherID ? <TeacherStack/> : <InitialStack/>
+        )}
       </NavigationContainer>
     </>
   )

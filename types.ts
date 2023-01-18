@@ -7,10 +7,18 @@ export interface ITheme {
   backgroundColorSecondary: string
 }
 
+export type ITypeLogin = 'admin' | 'teacher'
+
 export type INavigation = {
-  Login: undefined
-  SigIn: undefined
-  Class: undefined
+  Home: undefined
+  Admin: undefined
+  Teacher: undefined
+  Sign: {
+    type: ITypeLogin
+  }
+  Login: {
+    type: ITypeLogin
+  }
 }
 
 export interface ITeacher {

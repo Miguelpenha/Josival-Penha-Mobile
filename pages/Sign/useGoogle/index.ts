@@ -1,4 +1,5 @@
 import * as WebBrowser from 'expo-web-browser'
+import { ITypeLogin } from '../../../types'
 import useAuthRequest from './useAuthRequest'
 import useAuth from '../../../contexts/authContext'
 import useLogin from './useLogin'
@@ -7,13 +8,13 @@ import verify from './verify'
 
 WebBrowser.maybeCompleteAuthSession()
 
-function useGoogle() {
+function useGoogle(type: ITypeLogin) {
     const { response, promptAsync } = useAuthRequest()
-    const { loginGoogle } = useAuth()
+    const { admin: { loginGoogle: loginGoogleAdmin }, teacher: { loginGoogle: loginGoogleTeacher } } = useAuth()
     const { login } = useLogin(promptAsync)
 
     useEffect(() => {
-        verify(response, loginGoogle).then()
+        verify(response, type === 'admin' ? loginGoogleAdmin : loginGoogleTeacher).then()
     }, [response])
 
     return { loginGoogle: login }

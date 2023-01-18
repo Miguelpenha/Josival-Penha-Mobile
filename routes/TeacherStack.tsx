@@ -1,20 +1,20 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import { INavigation } from '../types'
-import Class from '../pages/Class'
+import Teacher from '../pages/Teacher'
 
-function MainStack() {
+function TeacherStack() {
     const { Navigator, Screen } = createStackNavigator<INavigation>()
     
     return (
         <Navigator
-            initialRouteName="Class"
+            initialRouteName="Teacher"
             screenOptions={{
                 headerShown: false
             }}
         >
-            <Screen name="Class" component={Class}/>
+            <Screen name="Teacher" component={Teacher}/>
         </Navigator>
     )
 }
 
-export default MainStack
+export default TeacherStack

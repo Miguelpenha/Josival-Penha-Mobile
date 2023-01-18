@@ -1,16 +1,23 @@
+import { ITypeLogin } from '../../../types'
 import { useState } from 'react'
 import { useTheme } from 'styled-components'
+import { useRoute } from '@react-navigation/native'
 import useLocal from './useLocal'
 import { Container, Field, Label } from './style'
 import { FadeInDown } from 'react-native-reanimated'
 import Input from './Input'
 import ButtonSubmit from './ButtonSubmit'
 
+interface IParams {
+    type: ITypeLogin
+}
+
 function Form() {
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
     const theme = useTheme()
-    const { loginLocal } = useLocal(login, password)
+    const { type } = useRoute().params as IParams
+    const { loginLocal } = useLocal(type, login, password)
 
     return (
         <Container entering={FadeInDown.delay(200).duration(400)}>

@@ -1,7 +1,8 @@
 import { AuthSessionResult } from 'expo-auth-session'
+import { IAuthContext } from '../../../contexts/authContext/type'
 import SimpleToast from 'react-native-simple-toast'
 
-async function verify(response: AuthSessionResult, loginGoogle: (accessToken: string) => Promise<{ authenticated: boolean }>) {
+async function verify(response: AuthSessionResult, loginGoogle: IAuthContext['teacher']['loginGoogle'] | IAuthContext['admin']['loginGoogle']) {
     if (response?.type === 'success') {
         const { accessToken } = response.authentication
         const { authenticated } = await loginGoogle(accessToken)
