@@ -91,8 +91,8 @@ const AuthProvider: FC<Iprops> = ({ children }) => {
 
     useEffect(() => {
         async function load() {
-            const isAdminRaw = await AsyncStorage.getItem('@reportCard:teacherID')
-            const teacherIDRaw = await AsyncStorage.getItem('@reportCard:isAdmin')
+            const isAdminRaw = await AsyncStorage.getItem('@reportCard:isAdmin')
+            const teacherIDRaw = await AsyncStorage.getItem('@reportCard:teacherID')
 
             if (teacherIDRaw) {
                 setTeacherID(teacherIDRaw)

@@ -1,24 +1,13 @@
-import useAuth from '../../contexts/authContext'
-import { useNavigation } from '@react-navigation/native'
-import SimpleToast from 'react-native-simple-toast'
+import useLogout from './useLogout'
 import ContainerPd from '../../components/ContainerPd'
 import HeaderBack from '../../components/HeaderBack'
 
 function Teacher() {
-  const { teacher: { logout } } = useAuth()
-  const navigation = useNavigation()
-
-  async function onPressLogout() {
-    await logout()
-
-    navigation.navigate('Sign', { type: 'teacher' })
-
-    SimpleToast.show('Logout feito!', SimpleToast.SHORT)
-  }
+  const logout = useLogout()
 
   return (
     <ContainerPd>
-      <HeaderBack onPress={onPressLogout}>Professora</HeaderBack>
+      <HeaderBack onPress={logout}>Teacher</HeaderBack>
     </ContainerPd>
   )
 }
