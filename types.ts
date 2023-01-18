@@ -11,8 +11,9 @@ export type ITypeLogin = 'admin' | 'teacher'
 
 export type INavigation = {
   Home: undefined
-  Admin: undefined
-  Teacher: undefined
+  AdminHome: undefined
+  TeacherHome: undefined
+  AdminSpreadsheets: undefined
   Sign: {
     type: ITypeLogin
   }

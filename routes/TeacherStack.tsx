@@ -1,18 +1,18 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import { INavigation } from '../types'
-import Teacher from '../pages/Teacher'
+import TeacherHome from '../pages/Teacher'
 
 function TeacherStack() {
     const { Navigator, Screen } = createStackNavigator<INavigation>()
     
     return (
         <Navigator
-            initialRouteName="Teacher"
+            initialRouteName="TeacherHome"
             screenOptions={{
                 headerShown: false
             }}
         >
-            <Screen name="Teacher" component={Teacher}/>
+            <Screen name="TeacherHome" component={TeacherHome}/>
         </Navigator>
     )
 }

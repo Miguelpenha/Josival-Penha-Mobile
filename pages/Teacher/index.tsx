@@ -2,7 +2,7 @@ import useLogout from './useLogout'
 import ContainerPd from '../../components/ContainerPd'
 import HeaderBack from '../../components/HeaderBack'
 
-function Teacher() {
+function Home() {
   const logout = useLogout()
 
   return (
@@ -12,4 +12,4 @@ function Teacher() {
   )
 }
 
-export default Teacher
+export default Home
