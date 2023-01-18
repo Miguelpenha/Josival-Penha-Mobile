@@ -17,8 +17,8 @@ function Sign() {
     return (
         <ContainerPd>
             <HeaderBack onPress={() => navigation.navigate('Home')}>Escolha a forma de login</HeaderBack>
-            <Button index={2} typeIcon="AntDesign" icon="google" onPress={loginGoogle}>Google</Button>
-            <Button index={1} icon="login" onPress={() => navigation.navigate('Login', { type })}>Login</Button>
+            <Button index={1} typeIcon="AntDesign" icon="google" onPress={loginGoogle}>Google</Button>
+            <Button index={2} icon="login" onPress={() => navigation.navigate('Login', { type })}>Login</Button>
         </ContainerPd>
     )
 }
