@@ -7,7 +7,7 @@ function Teacher() {
 
   return (
     <ContainerPd>
-      <HeaderBack onPress={logout}>Teacher</HeaderBack>
+      <HeaderBack onPress={logout}>Professora</HeaderBack>
     </ContainerPd>
   )
 }
