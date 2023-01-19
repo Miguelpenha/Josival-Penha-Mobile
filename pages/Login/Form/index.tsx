@@ -39,6 +39,7 @@ function Form() {
             <Field entering={FadeInDown.delay(400).duration(400)}>
                 <Label>Senha</Label>
                 <Input
+                    icon
                     value={password}
                     placeholder="Senha..."
                     secureTextEntry={true}

@@ -1,12 +1,26 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { TextInputProps } from 'react-native'
 import useAnimation from './useAnimation'
-import { InputRaw } from './style'
+import { Container, ContainerIcon, Icon, InputRaw } from './style'
 
-const Input: FC<TextInputProps> = props => {
+interface Iprops extends TextInputProps {
+    icon?: boolean
+}
+
+const Input: FC<Iprops> = ({ icon, ...props }) => {
+    const [hidden, setHidden] = useState(false)
     const animation = useAnimation()
 
-    return <InputRaw {...props} {...animation}/>
+    return (
+        <Container>
+            {icon && (
+                <ContainerIcon activeOpacity={0.4} onPress={() => setHidden(!hidden)}>
+                    <Icon name={`visibility${hidden ? '-off' : ''}`} size={25}/>
+                </ContainerIcon>
+            )}
+            <InputRaw {...props} secureTextEntry={!hidden} keyboardType={hidden ? 'visible-password' : 'default'} icon={icon} {...animation}/>
+        </Container>
+    )
 }
 
 export default Input
