@@ -22,7 +22,7 @@ function Spreadsheets() {
       <Button title="Alunos" index={3} onPress={() => generateSpreadsheet('/export/Alunos', 'Planilhas de alunos')}>
         <IconMaterial size={34} name="school"/>
       </Button>
-      <Button title="Financeiro" index={3} onPress={() => generateSpreadsheet('/export/Financeiro', 'Planilhas financeira')}>
+      <Button title="Financeiro" index={3} onPress={() => generateSpreadsheet('/export/Financeiro', 'Planilha de financeiro')}>
         <IconMaterial size={34} name="account-balance"/>
       </Button>
       <Button title="Geral" index={4} onPress={() => generateSpreadsheet(`/export/${filtersGeneralSpreadsheet.toString()}`, 'Planilhas geral')}>
