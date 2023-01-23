@@ -6,7 +6,7 @@ import { Icon, IconMaterial } from './style'
 import { Path } from 'react-native-svg'
 
 function Spreadsheets() {
-  const filtersGeneralSpreadsheet = ['Alunos', 'Turmas', 'Professoras']
+  const filtersGeneralSpreadsheet = ['Alunos', 'Turmas', 'Professoras', 'Financeiro']
 
   return (
     <ContainerPd>
@@ -21,6 +21,9 @@ function Spreadsheets() {
       </Button>
       <Button title="Alunos" index={3} onPress={() => generateSpreadsheet('/export/Alunos', 'Planilhas de alunos')}>
         <IconMaterial size={34} name="school"/>
+      </Button>
+      <Button title="Financeiro" index={3} onPress={() => generateSpreadsheet('/export/Financeiro', 'Planilhas financeira')}>
+        <IconMaterial size={34} name="account-balance"/>
       </Button>
       <Button title="Geral" index={4} onPress={() => generateSpreadsheet(`/export/${filtersGeneralSpreadsheet.toString()}`, 'Planilhas geral')}>
         <IconMaterial size={34} name="device-hub"/>
