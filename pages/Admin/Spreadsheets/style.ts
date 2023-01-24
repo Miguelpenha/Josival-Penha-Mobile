@@ -2,6 +2,10 @@ import styled, { css } from 'styled-components/native'
 import { Svg } from 'react-native-svg'
 import { MaterialIcons } from '@expo/vector-icons'
 
+export const ContainerButtons = styled.View`
+    padding-bottom: 15%;
+`
+
 const styleIcon = css`
     margin-right: 7%;
 `

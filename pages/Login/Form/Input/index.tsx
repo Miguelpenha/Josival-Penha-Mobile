@@ -13,12 +13,12 @@ const Input: FC<Iprops> = ({ icon, ...props }) => {
 
     return (
         <Container>
-            {icon && (
+            {icon && <>
                 <ContainerIcon activeOpacity={0.4} onPress={() => setHidden(!hidden)}>
                     <Icon name={`visibility${hidden ? '-off' : ''}`} size={25}/>
                 </ContainerIcon>
-            )}
-            <InputRaw {...props} secureTextEntry={!hidden} keyboardType={hidden ? 'visible-password' : 'default'} icon={icon} {...animation}/>
+            </>}
+            <InputRaw {...props} icon={icon} {...animation}/>
         </Container>
     )
 }
