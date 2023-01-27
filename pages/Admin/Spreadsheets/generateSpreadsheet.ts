@@ -2,8 +2,8 @@ import Constants from 'expo-constants'
 import * as FileSystem from 'expo-file-system'
 import * as Sharing from 'expo-sharing'
 
-async function generateSpreadsheet(url: string, name: String) {
-  const URLDocument = `${Constants.expoConfig?.extra?.API_URL}${url}`
+async function generateSpreadsheet(type: string, name: String) {
+  const URLDocument = `${Constants.expoConfig?.extra?.API_URL}/export/${type}`
   const pathDocument = `${FileSystem.documentDirectory}${name}.xlsx`
 
   const { uri } = await FileSystem.downloadAsync(URLDocument, pathDocument, {
