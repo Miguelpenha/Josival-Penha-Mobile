@@ -1,4 +1,4 @@
-import { IconName, TypeIcon } from '../../../../components/Button/type'
+import { IconName, TypeIcon } from '../../../../components/Icon/type'
 import generateSpreadsheet from '../generateSpreadsheet'
 
 interface IButton {

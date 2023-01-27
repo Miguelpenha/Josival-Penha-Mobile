@@ -1,13 +1,14 @@
 import { Container } from './style'
 import buttons from './buttons'
 import Button from '../../../../components/Button'
+import Icon from '../../../../components/Icon'
 
 function Buttons() {
     return (
         <Container>
             {buttons.map((button, index) => (
-                <Button index={index} icon={button.icon} typeIcon={button.typeIcon} onPress={button.onPress}>
-                    {button.title}
+                <Button key={index} index={index} title={button.title} onPress={button.onPress}>
+                    <Icon icon={button.icon} typeIcon={button.typeIcon}/>
                 </Button>
             ))}
         </Container>

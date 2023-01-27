@@ -4,6 +4,7 @@ import useGoogle from './useGoogle'
 import ContainerPd from '../../components/ContainerPd'
 import HeaderBack from '../../components/HeaderBack'
 import Button from '../../components/Button'
+import Icon from '../../components/Icon'
 
 interface IParams {
     type: ITypeLogin
@@ -17,8 +18,12 @@ function Sign() {
     return (
         <ContainerPd>
             <HeaderBack onPress={() => navigation.navigate('Home')}>Escolha a forma de login</HeaderBack>
-            <Button index={1} icon="google" typeIcon="AntDesign" onPress={loginGoogle}>Google</Button>
-            <Button index={2} icon="login" onPress={() => navigation.navigate('Login', { type })}>Login</Button>
+            <Button index={1} title="Google" onPress={loginGoogle}>
+                <Icon icon="google" typeIcon="AntDesign"/>
+            </Button>
+            <Button index={2} title="Login" onPress={() => navigation.navigate('Login', { type })}>
+                <Icon icon="login"/>
+            </Button>
         </ContainerPd>
     )
 }

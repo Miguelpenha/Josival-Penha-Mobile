@@ -6,7 +6,7 @@ import useLocal from './useLocal'
 import { Container, Field, Label } from './style'
 import { FadeInDown } from 'react-native-reanimated'
 import Input from './Input'
-import ButtonSubmit from './ButtonSubmit'
+import ButtonSubmit from '../../../components/ButtonSubmit'
 
 interface IParams {
     type: ITypeLogin
@@ -51,7 +51,7 @@ function Form() {
                     placeholderTextColor={theme.primary}
                 />
             </Field>
-            <ButtonSubmit onPress={loginLocal}/>
+            <ButtonSubmit title="Confirmar" onPress={loginLocal}/>
         </Container>
     )
 }

@@ -1,15 +1,15 @@
-import { IconName, TypeIcon } from '../type'
+import { IconName, TypeIcon } from './type'
 import { FC } from 'react'
 import { IconMaterialIcons, IconAntDesign, IconMaterialCommunityIcons } from './style'
-import icons from '../../icons'
+import icons from '../icons'
 
 interface Iprops {
-    children: any
+    children?: any
     icon?: IconName
     typeIcon?: TypeIcon
 }
 
-const Icon: FC<Iprops> = ({ icon, typeIcon , children}) => {
+const Icon: FC<Iprops> = ({ icon, typeIcon='MaterialIcons', children }) => {
     if (icon) {
         if (typeIcon === 'MaterialIcons') {
             return <IconMaterialIcons name={icon} size={30}/>
