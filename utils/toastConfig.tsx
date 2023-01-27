@@ -14,6 +14,7 @@ function configBase({ colorBorder }: Iprops): BaseToastProps {
     return {
         text1NumberOfLines: 2,
         style: {
+            width: '80%',
             borderLeftColor: colorBorder,
             backgroundColor: theme.backgroundColorSecondary
         },
