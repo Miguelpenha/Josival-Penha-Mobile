@@ -8,11 +8,11 @@ dotenv.config({
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
-  scheme: 'report-card',
-  originalFullName: '@miguelpenha/report-card',
-  currentFullName: '@miguelpenha/report-card',
-  name: 'Report Card',
-  slug: 'report-card',
+  scheme: 'josival-penha',
+  originalFullName: '@miguelpenha/Josival-Penha',
+  currentFullName: '@miguelpenha/Josival-Penha',
+  name: 'Josival Penha',
+  slug: 'Josival-Penha',
   version: '1.0.0',
   orientation: 'portrait',
   icon: './assets/icon.png',
@@ -23,8 +23,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     backgroundColor: '#200004'
   },
   updates: {
-    fallbackToCacheTimeout: 0,
-    url: 'https://u.expo.dev/f69102c5-2514-4954-8550-4be770430d6a'
+    url: 'https://u.expo.dev/35b50bcb-8638-4abc-91d4-0c02c467e99f'
   },
   assetBundlePatterns: [
     '**/*'
@@ -34,7 +33,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       foregroundImage: './assets/adaptive-icon.png',
       backgroundColor: '#200004'
     },
-    package: 'com.josivalpenha.report.card'
+    package: 'com.josivalpenha.josival.penha'
   },
   ios: {
     supportsTablet: true
@@ -45,7 +44,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   extra: {
     ...process.env,
     eas: {
-      projectId: 'f69102c5-2514-4954-8550-4be770430d6a'
+      projectId: '35b50bcb-8638-4abc-91d4-0c02c467e99f'
     }
   },
   runtimeVersion: {

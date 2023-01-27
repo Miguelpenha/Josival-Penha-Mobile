@@ -7,6 +7,8 @@ import { ThemeProvider } from 'styled-components'
 import theme from './theme'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import Routes from './routes'
+import Toast from 'react-native-toast-message'
+import toastConfig from './utils/toastConfig'
 
 function App() {
   const [isReady, setReady] = useState(false)
@@ -27,6 +29,7 @@ function App() {
         <AuthProvider>
           <GestureHandlerRootView style={{flex: 1}}>
             <Routes/>
+            <Toast config={toastConfig} onPress={() => Toast.hide()}/>
           </GestureHandlerRootView>
         </AuthProvider>
       </ThemeProvider>

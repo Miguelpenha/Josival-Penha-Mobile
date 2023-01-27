@@ -1,6 +1,6 @@
 import useAuth from '../../contexts/authContext'
 import { useNavigation } from '@react-navigation/native'
-import SimpleToast from 'react-native-simple-toast'
+import Toast from 'react-native-toast-message'
 
 function useLogout() {
     const { teacher: { logout } } = useAuth()
@@ -11,7 +11,10 @@ function useLogout() {
 
         navigation.navigate('Sign', { type: 'teacher' })
 
-        SimpleToast.show('Logout feito!', SimpleToast.SHORT)
+        Toast.show({
+            type: 'error',
+            text1: 'Logout feito'
+        })
     }
 
     return logoutOnPress

@@ -1,17 +1,33 @@
 import { IAuthContext } from '../../../../contexts/authContext/type'
-import SimpleToast from 'react-native-simple-toast'
+import Toast from 'react-native-toast-message'
 
 async function verify(loginLocal: IAuthContext['teacher']['loginLocal'] | IAuthContext['admin']['loginLocal'], login: string, password: string) {
     if (login && password) {
-        const { authenticated } = await loginLocal(login, password)
+        if (login.endsWith('@josivalpenha.com')) {
+            const { authenticated } = await loginLocal(login, password)
 
-        if (authenticated) {
-            SimpleToast.show('Login feito com sucesso!', SimpleToast.SHORT)
+            if (authenticated) {
+                Toast.show({
+                    type: 'success',
+                    text1: 'Login feito com sucesso'
+                })
+            } else {
+                Toast.show({
+                    type: 'error',
+                    text1: 'Login ou senha incorretos'
+                })
+            }
         } else {
-            SimpleToast.show('Login ou senha inválidos', SimpleToast.SHORT)
+            Toast.show({
+                type: 'error',
+                text1: 'Somente emails da organização são permitidos'
+            })
         }
     } else {
-        SimpleToast.show('Login ou senha inválidos', SimpleToast.SHORT)
+        Toast.show({
+            type: 'error',
+            text1: 'Login ou senha não preenchidos'
+        })
     }
 }
 

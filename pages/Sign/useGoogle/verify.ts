@@ -1,6 +1,6 @@
 import { AuthSessionResult } from 'expo-auth-session'
 import { IAuthContext } from '../../../contexts/authContext/type'
-import SimpleToast from 'react-native-simple-toast'
+import Toast from 'react-native-toast-message'
 
 async function verify(response: AuthSessionResult, loginGoogle: IAuthContext['teacher']['loginGoogle'] | IAuthContext['admin']['loginGoogle']) {
     if (response?.type === 'success') {
@@ -8,9 +8,15 @@ async function verify(response: AuthSessionResult, loginGoogle: IAuthContext['te
         const { authenticated } = await loginGoogle(accessToken)
 
         if (authenticated) {
-            SimpleToast.show('Login feito com sucesso!', SimpleToast.SHORT)
+            Toast.show({
+                type: 'success',
+                text1: 'Login feito com sucesso'
+            })
         } else {
-            SimpleToast.show('Conta inválida', SimpleToast.SHORT)
+            Toast.show({
+                type: 'error',
+                text1: 'Conta inválida'
+            })
         }
     }
 }
