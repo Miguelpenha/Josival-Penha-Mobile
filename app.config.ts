@@ -20,7 +20,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   splash: {
     image: './assets/splash.png',
     resizeMode: 'contain',
-    backgroundColor: '#200004'
+    backgroundColor: '#00131a'
   },
   updates: {
     url: 'https://u.expo.dev/35b50bcb-8638-4abc-91d4-0c02c467e99f'
@@ -31,7 +31,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   android: {
     adaptiveIcon: {
       foregroundImage: './assets/adaptive-icon.png',
-      backgroundColor: '#200004'
+      backgroundColor: '#00131a'
     },
     package: 'com.josivalpenha.josival.penha'
   },
