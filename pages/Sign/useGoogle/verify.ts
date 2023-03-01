@@ -7,8 +7,6 @@ async function verify(response: AuthSessionResult, loginGoogle: IAuthContext['te
         const { accessToken } = response.authentication
         const { authenticated } = await loginGoogle(accessToken)
 
-        console.log(accessToken)
-
         if (authenticated) {
             Toast.show({
                 type: 'success',
