@@ -1,14 +1,14 @@
 export interface IAuthContext {
     isAdmin: boolean
-    teacherID: string
+    teacherID: string | null
     admin: {
         logout: () => Promise<void>
-        loginGoogle: (accessToken: string) => Promise<{ authenticated: boolean }>
+        loginGoogle: (jwt: string) => Promise<{ authenticated: boolean }>
         loginLocal: (login: string, password: string) => Promise<{ authenticated: boolean }>
     }
     teacher: {
         logout: () => Promise<void>
-        loginGoogle: (accessToken: string) => Promise<{ authenticated: boolean }>
+        loginGoogle: (jwt: string) => Promise<{ authenticated: boolean }>
         loginLocal: (login: string, password: string) => Promise<{ authenticated: boolean }>
     }
 }
