@@ -1,18 +1,22 @@
-import { FC, memo } from 'react'
 import { ActivityIndicatorProps, Platform } from 'react-native'
+import { FC, memo } from 'react'
 import { useTheme } from 'styled-components'
-import { LoadingRow } from './style'
+import { LoadingRaw } from './style'
 import { FadingTransition } from 'react-native-reanimated'
 
-const Loading: FC<ActivityIndicatorProps> = ({ ...props }) => {
+interface IProps extends ActivityIndicatorProps {
+    size?: number
+}
+
+const Loading: FC<IProps> = ({ size=50, ...props }) => {
     const theme = useTheme()
 
     return (
-        <LoadingRow
+        <LoadingRaw
             {...props}
             color={theme.primary}
             layout={FadingTransition}
-            size={Platform.OS === 'android' ? 50 : 'large'}
+            size={Platform.OS === 'android' ? size : 'large'}
         />
     )
 }

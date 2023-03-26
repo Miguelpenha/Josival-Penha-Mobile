@@ -2,6 +2,7 @@ import styled from 'styled-components/native'
 import Animated from 'react-native-reanimated'
 import { TouchableOpacity } from 'react-native'
 import { RFPercentage } from 'react-native-responsive-fontsize'
+import LoadingRaw from '../Loading'
 
 export const Container = styled(Animated.createAnimatedComponent(TouchableOpacity))`
     width: 60%;
@@ -19,4 +20,9 @@ export const Text = styled.Text`
     font-weight: bold;
     font-size: ${RFPercentage(3.2)}px;
     color: ${props => props.theme.primary};
+`
+
+export const Loading = styled(LoadingRaw)`
+    margin: 0;
+    margin-right: 10%;
 `
