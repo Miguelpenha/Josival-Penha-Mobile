@@ -27,7 +27,7 @@ const Button: FC<IProps> = ({ index=1, loading=false, onPress, style, children, 
     
     return (
         <Container disabled={loadingState} {...animation} {...props}>
-            {loadingState ? <Loading size={40}/> : children}
+            {loadingState ? <Loading size={35}/> : children}
             <Text>{title}</Text>
         </Container>
     )
