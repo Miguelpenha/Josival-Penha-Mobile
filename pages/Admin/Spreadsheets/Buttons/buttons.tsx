@@ -15,27 +15,27 @@ const buttons: IButton[] = [
         icon: 'teacher',
         typeIcon: 'Custom',
         title: 'Professoras',
-        onPress: () => generateSpreadsheet('Professoras', 'Planilha de professoras')
+        onPress: async () => await generateSpreadsheet('Professoras', 'Planilha de professoras')
     },
     {
         icon: 'book',
         title: 'Turmas',
-        onPress: () => generateSpreadsheet('Turmas', 'Planilha de turmas')
+        onPress: async () => await generateSpreadsheet('Turmas', 'Planilha de turmas')
     },
     {
         icon: 'school',
         title: 'Alunos',
-        onPress: () => generateSpreadsheet('Alunos', 'Planilha de alunos')
+        onPress: async () => await generateSpreadsheet('Alunos', 'Planilha de alunos')
     },
     {
         title: 'Financeiro',
         icon: 'account-balance',
-        onPress: () => generateSpreadsheet('Financeiro', 'Planilha de financeiro')
+        onPress: async () => await generateSpreadsheet('Financeiro', 'Planilha de financeiro')
     },
     {
         title: 'Geral',
         icon: 'device-hub',
-        onPress: () => generateSpreadsheet(filtersGeneralSpreadsheet.toString(), 'Planilha geral')
+        onPress: async () => await generateSpreadsheet(filtersGeneralSpreadsheet.toString(), 'Planilha geral')
     }
 ]
 

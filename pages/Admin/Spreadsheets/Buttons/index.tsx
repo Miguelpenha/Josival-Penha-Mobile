@@ -7,7 +7,7 @@ function Buttons() {
     return (
         <Container>
             {buttons.map((button, index) => (
-                <Button key={index} index={index} title={button.title} onPress={button.onPress}>
+                <Button loading key={index} index={index} title={button.title} onPress={button.onPress}>
                     <Icon icon={button.icon} typeIcon={button.typeIcon}/>
                 </Button>
             ))}

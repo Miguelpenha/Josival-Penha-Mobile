@@ -51,7 +51,7 @@ function Form() {
                     placeholderTextColor={theme.primary}
                 />
             </Field>
-            <ButtonSubmit title="Confirmar" onPress={loginLocal}/>
+            <ButtonSubmit loading title="Confirmar" onPress={loginLocal}/>
         </Container>
     )
 }
