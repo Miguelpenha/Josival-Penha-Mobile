@@ -15,6 +15,9 @@ function Home() {
       <Button index={1} title="Planilhas" onPress={() => navigation.navigate('AdminSpreadsheets')}>
         <Icon icon="google-spreadsheet" typeIcon="MaterialCommunityIcons"/>
       </Button>
+      <Button index={2} title="Documentos" onPress={() => navigation.navigate('AdminDocuments')}>
+        <Icon icon="description" typeIcon="MaterialIcons"/>
+      </Button>
     </ContainerPd>
   )
 }

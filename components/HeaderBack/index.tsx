@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { Container, ContainerIcon, Icon, Title } from './style'
-import { FadeInDown } from 'react-native-reanimated'
+import { FadeInUp } from 'react-native-reanimated'
 import limitText from '../../utils/limitText'
 
 interface Iprops {
@@ -13,7 +13,7 @@ const HeaderBack: FC<Iprops> = ({ onPress, children }) => {
     const navigation = useNavigation()
 
     return (
-        <Container entering={FadeInDown}>
+        <Container entering={FadeInUp}>
             <ContainerIcon onPress={onPress || navigation.goBack}>
                 <Icon name="arrow-back-ios" size={25}/>
             </ContainerIcon>

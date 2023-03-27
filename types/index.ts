@@ -13,7 +13,9 @@ export type INavigation = {
   Home: undefined
   AdminHome: undefined
   TeacherHome: undefined
+  AdminDocuments: undefined
   AdminSpreadsheets: undefined
+  AdminDocumentsDeclaration: undefined
   Sign: {
     type: ITypeLogin
   }

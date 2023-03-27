@@ -1,6 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import { INavigation } from '../types'
-import { AdminHome, AdminSpreadsheets } from '../pages/Admin'
+import { AdminHome, AdminDocuments, AdminSpreadsheets, AdminDocumentsDeclaration } from '../pages/Admin'
 
 function AdminStack() {
     const { Navigator, Screen } = createStackNavigator<INavigation>()
@@ -13,7 +13,9 @@ function AdminStack() {
             }}
         >
             <Screen name="AdminHome" component={AdminHome}/>
+            <Screen name="AdminDocuments" component={AdminDocuments}/>
             <Screen name="AdminSpreadsheets" component={AdminSpreadsheets}/>
+            <Screen name="AdminDocumentsDeclaration" component={AdminDocumentsDeclaration}/>
         </Navigator>
     )
 }
