@@ -1,36 +1,41 @@
-import { useNavigation } from '@react-navigation/native'
 import { useState, useEffect } from 'react'
+import IStudent from '../../../../types/student'
+import { useRoute, useNavigation } from '@react-navigation/native'
 import { useTheme } from 'styled-components'
+import api from '../../../../services/api'
+import generateDocument from './generateDocument'
 import toast from 'react-native-toast-message'
 import { Container, Field, Label } from './style'
 import { FadeInDown } from 'react-native-reanimated'
 import Input from './Input'
 import ButtonSubmit from '../../../../components/ButtonSubmit'
-import generateDocument from './generateDocument'
-import api from '../../../../services/api'
-import IStudent from '../../../../types/student'
+
+interface IParams {
+    studentID: string
+}
 
 function Form() {
-    const [students, setStudents] = useState<IStudent[]>()
+    const [student, setStudent] = useState<IStudent>()
+    const params = useRoute().params as IParams
     const navigation = useNavigation()
     const [frequency, setFrequency] = useState(98)
     const theme = useTheme()
 
     useEffect(() => {
-        async function getStudents() {
-            const { data } = await api.get('/students')
+        async function getStudent() {
+            const { data } = await api.get(`/students/${params.studentID}`)
 
-            setStudents(data)
+            setStudent(data)
         }
 
-        getStudents().then()
+        getStudent().then()
     }, [])
 
     async function handleSubmit() {
-        if (students) {
-            await generateDocument(students[0]._id, frequency, true, `Declaração de frequência do aluno(a) ${students[0].name}.pdf`)
+        if (student) {
+            await generateDocument(student._id, frequency, true, `Declaração de frequência do aluno(a) ${student.name}`)
 
-            navigation.goBack()
+            navigation.navigate('AdminHome')
 
             toast.show({
                 type: 'success',

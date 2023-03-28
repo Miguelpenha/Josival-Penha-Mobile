@@ -12,7 +12,9 @@ function Documents() {
     <ContainerPd scroll>
       <HeaderBack>Documentos</HeaderBack>
       <Container>
-        <Button index={1} title="Declaração" onPress={() => navigation.navigate('AdminDocumentsDeclaration')}>
+        <Button index={1} title="Declaração" onPress={() => navigation.navigate('SelectStudent', {
+          next: 'AdminDocumentsDeclaration'
+        })}>
           <Icon icon="article" typeIcon="MaterialIcons"/>
         </Button>
       </Container>

@@ -15,12 +15,17 @@ export type INavigation = {
   TeacherHome: undefined
   AdminDocuments: undefined
   AdminSpreadsheets: undefined
-  AdminDocumentsDeclaration: undefined
   Sign: {
     type: ITypeLogin
   }
   Login: {
     type: ITypeLogin
+  }
+  SelectStudent: {
+    next: keyof INavigation
+  }
+  AdminDocumentsDeclaration: {
+    studentID: string
   }
 }
 
