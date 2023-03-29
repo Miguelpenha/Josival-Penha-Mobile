@@ -1,5 +1,5 @@
 import { FC, useState, useEffect } from 'react'
-import api from '../../services/api'
+import api from '../../services/api/base'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import TypesContext from './Context'
 

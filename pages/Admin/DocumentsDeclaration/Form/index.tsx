@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react'
-import IStudent from '../../../../types/student'
 import { useRoute, useNavigation } from '@react-navigation/native'
-import { useTheme } from 'styled-components'
 import api from '../../../../services/api'
+import IStudent from '../../../../types/student'
+import { useState } from 'react'
+import { useTheme } from 'styled-components'
 import generateDocument from './generateDocument'
 import toast from 'react-native-toast-message'
 import { Container, Field, Label } from './style'
 import { FadeInDown } from 'react-native-reanimated'
-import Input from './Input'
+import Input from '../../../../components/Input'
+import Switch from '../../../../components/Switch'
 import ButtonSubmit from '../../../../components/ButtonSubmit'
 
 interface IParams {
@@ -15,25 +16,16 @@ interface IParams {
 }
 
 function Form() {
-    const [student, setStudent] = useState<IStudent>()
     const params = useRoute().params as IParams
+    const { data: student } = api.get<IStudent>(`/students/${params.studentID}`)
     const navigation = useNavigation()
     const [frequency, setFrequency] = useState(98)
+    const [isScholarship, setIsScholarship] = useState(false)
     const theme = useTheme()
-
-    useEffect(() => {
-        async function getStudent() {
-            const { data } = await api.get(`/students/${params.studentID}`)
-
-            setStudent(data)
-        }
-
-        getStudent().then()
-    }, [])
 
     async function handleSubmit() {
         if (student) {
-            await generateDocument(student._id, frequency, true, `Declaração de frequência do aluno(a) ${student.name}`)
+            await generateDocument(student._id, frequency, isScholarship, `Declaração de frequência do aluno(a) ${student.name}`)
 
             navigation.navigate('AdminHome')
 
@@ -64,6 +56,9 @@ function Form() {
                         }
                     }}
                 />
+            </Field>
+            <Field entering={FadeInDown.delay(400).duration(400)}>
+                <Switch label="Bolsista" value={isScholarship} setValue={setIsScholarship}/>
             </Field>
             <ButtonSubmit loading title="Gerar" onPress={handleSubmit}/>
         </Container>

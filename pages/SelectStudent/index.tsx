@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useTheme } from 'styled-components'
-import HeaderBack from '../../components/HeaderBack'
 import Container from './Container'
-import InputSearch from './InputSearch'
+import HeaderBack from '../../components/HeaderBack'
+import { InputSearch } from './style'
 import Students from './Students'
 
 function SelectStudent() {

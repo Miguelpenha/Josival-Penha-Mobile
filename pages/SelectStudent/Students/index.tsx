@@ -1,48 +1,29 @@
-import { INavigation } from '../../../types'
-import { FC, useState, useEffect } from 'react'
-import IStudent from '../../../types/student'
-import { useNavigation, useRoute } from '@react-navigation/native'
+import { FC } from 'react'
+import useRender from './render'
 import api from '../../../services/api'
+import IStudent from '../../../types/student'
 import { Container } from './style'
-import { ListRenderItemInfo } from 'react-native'
-import Student from './Student'
+import Loading from '../../../components/Loading'
 
 interface IProps {
     search: string
 }
 
-interface IParams {
-    next: keyof INavigation
-}
-
 const Students: FC<IProps> = ({ search }) => {
-    const [students, setStudents] = useState<IStudent[]>()
-    const navigation = useNavigation()
-    const params = useRoute().params as IParams
+    const render = useRender(search)
+    const { data: students } = api.get<IStudent[]>('/students')
 
-    useEffect(() => {
-        async function getStudents() {
-            const { data } = await api.get('/students')
-
-            setStudents(data)
-        }
-
-        getStudents().then()
-    }, [])
-
-    return (
-        <Container
-            data={students}
-            keyExtractor={(item, index) => String(index)}
-            renderItem={({ item }: ListRenderItemInfo<IStudent>) => {
-                if (item.name.toUpperCase().includes(search.toUpperCase())) {
-                    return <Student student={item} onPress={() => navigation.navigate(params.next, {
-                        studentID: item._id
-                    } as any)}/>
-                }
-            }}
-        />
-    )
+    if (students) {
+        return (
+            <Container
+                data={students}
+                renderItem={render}
+                keyExtractor={(item, index) => String(index)}
+            />
+        )
+    } else {
+        return <Loading size={70}/>
+    }
 }
 
 export default Students

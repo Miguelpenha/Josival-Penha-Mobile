@@ -5,6 +5,7 @@ import { TextInput } from 'react-native'
 import { RFPercentage } from 'react-native-responsive-fontsize'
 
 export const Container = styled.View`
+    align-self: center;
     flex-direction: row;
 `
 

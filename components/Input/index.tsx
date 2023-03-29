@@ -1,24 +1,25 @@
 import { FC, useState } from 'react'
-import { TextInputProps } from 'react-native'
+import { TextInputProps, ViewStyle } from 'react-native'
 import useAnimation from './useAnimation'
 import { Container, ContainerIcon, Icon, InputRaw } from './style'
 
 interface Iprops extends TextInputProps {
     icon?: boolean
+    styleContainer?: ViewStyle
 }
 
-const Input: FC<Iprops> = ({ icon, ...props }) => {
+const Input: FC<Iprops> = ({ style, icon, styleContainer, ...props }) => {
     const [hidden, setHidden] = useState(false)
-    const animation = useAnimation()
+    const animation = useAnimation(style as object)
 
     return (
-        <Container>
+        <Container style={styleContainer}>
             {icon && <>
                 <ContainerIcon activeOpacity={0.4} onPress={() => setHidden(!hidden)}>
                     <Icon name={`visibility${hidden ? '-off' : ''}`} size={25}/>
                 </ContainerIcon>
             </>}
-            <InputRaw {...props} icon={icon} {...animation}/>
+            <InputRaw icon={icon} {...animation} {...props}/>
         </Container>
     )
 }

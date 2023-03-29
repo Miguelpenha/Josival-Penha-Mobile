@@ -1,7 +1,7 @@
-import { TextInputProps } from 'react-native'
+import { TextStyle, TextInputProps } from 'react-native'
 import { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated'
 
-function useAnimation(): TextInputProps {
+function useAnimation(style: TextStyle): TextInputProps {
     const border = useSharedValue(20)
 
     const animation = useAnimatedStyle(() => ({
@@ -9,7 +9,7 @@ function useAnimation(): TextInputProps {
     }))
 
     return {
-        style: animation,
+        style: [style, animation],
         onFocus() {
             border.value = withTiming(10)
         },

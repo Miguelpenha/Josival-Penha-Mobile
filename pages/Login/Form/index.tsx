@@ -5,7 +5,7 @@ import { useRoute } from '@react-navigation/native'
 import useLocal from './useLocal'
 import { Container, Field, Label } from './style'
 import { FadeInDown } from 'react-native-reanimated'
-import Input from './Input'
+import Input from '../../../components/Input'
 import ButtonSubmit from '../../../components/ButtonSubmit'
 
 interface IParams {
