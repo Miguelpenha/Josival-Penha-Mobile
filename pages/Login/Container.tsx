@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView } from 'react-native'
-import ContainerPd from '../../components/ContainerPd'
+import ContainerDefault from '../../components/ContainerDefault'
 
 interface Iprops {
   children: any
@@ -9,11 +9,11 @@ interface Iprops {
 const Container: FC<Iprops> = ({ children }) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <ContainerPd>
+        <ContainerDefault>
           <KeyboardAvoidingView behavior="position" enabled>
             {children}
           </KeyboardAvoidingView>
-        </ContainerPd>
+        </ContainerDefault>
     </TouchableWithoutFeedback>
   )
 }

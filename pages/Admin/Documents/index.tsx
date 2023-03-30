@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native'
-import ContainerPd from '../../../components/ContainerPd'
+import ContainerDefault from '../../../components/ContainerDefault'
 import HeaderBack from '../../../components/HeaderBack'
 import { Container } from './style'
 import Button from '../../../components/Button'
@@ -9,7 +9,7 @@ function Documents() {
   const navigation = useNavigation()
 
   return (
-    <ContainerPd scroll>
+    <ContainerDefault scroll>
       <HeaderBack>Documentos</HeaderBack>
       <Container>
         <Button index={1} title="Declaração" onPress={() => navigation.navigate('SelectStudent', {
@@ -18,7 +18,7 @@ function Documents() {
           <Icon icon="article" typeIcon="MaterialIcons"/>
         </Button>
       </Container>
-    </ContainerPd>
+    </ContainerDefault>
   )
 }
 

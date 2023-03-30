@@ -1,13 +1,13 @@
-import ContainerPd from '../../../components/ContainerPd'
+import ContainerDefault from '../../../components/ContainerDefault'
 import HeaderBack from '../../../components/HeaderBack'
 import Buttons from './Buttons'
 
 function Spreadsheets() {
   return (
-    <ContainerPd scroll>
+    <ContainerDefault scroll>
       <HeaderBack>Planilhas</HeaderBack>
       <Buttons/>
-    </ContainerPd>
+    </ContainerDefault>
   )
 }
 

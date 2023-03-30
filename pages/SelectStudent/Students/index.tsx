@@ -1,8 +1,10 @@
 import { FC } from 'react'
-import useRender from './render'
 import api from '../../../services/api'
 import IStudent from '../../../types/student'
+import useRender from './render'
+import useRefreshProps from '../../../components/useRefreshProps'
 import { Container } from './style'
+import { RefreshControl } from 'react-native'
 import Loading from '../../../components/Loading'
 
 interface IProps {
@@ -10,8 +12,9 @@ interface IProps {
 }
 
 const Students: FC<IProps> = ({ search }) => {
+    const { data: students, mutate } = api.get<IStudent[]>('/students')
     const render = useRender(search)
-    const { data: students } = api.get<IStudent[]>('/students')
+    const refreshProps = useRefreshProps(mutate)
 
     if (students) {
         return (
@@ -19,6 +22,7 @@ const Students: FC<IProps> = ({ search }) => {
                 data={students}
                 renderItem={render}
                 keyExtractor={(item, index) => String(index)}
+                refreshControl={<RefreshControl {...refreshProps}/>}
             />
         )
     } else {

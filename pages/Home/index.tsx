@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native'
-import ContainerPd from '../../components/ContainerPd'
+import ContainerDefault from '../../components/ContainerDefault'
 import { Title } from './style'
 import { FadeInDown } from 'react-native-reanimated'
 import Button from '../../components/Button'
@@ -9,7 +9,7 @@ function Home() {
     const navigation = useNavigation()
 
     return (
-        <ContainerPd>
+        <ContainerDefault>
             <Title entering={FadeInDown}>Faça login</Title>
             <Button index={1} title="Professoras" onPress={() => navigation.navigate('Sign', { type: 'teacher' })}>
                 <Icon icon="teacher" typeIcon="Custom"/>
@@ -17,7 +17,7 @@ function Home() {
             <Button index={2} title="Admin" onPress={() => navigation.navigate('Sign', { type: 'admin' })}>
                 <Icon icon="admin" typeIcon="Custom"/>
             </Button>
-        </ContainerPd>
+        </ContainerDefault>
     )
 }
 
