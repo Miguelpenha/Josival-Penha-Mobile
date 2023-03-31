@@ -1,6 +1,11 @@
+import styled from 'styled-components/native'
+import Animated from 'react-native-reanimated'
 import { StyleSheet } from 'react-native'
-import styled from 'styled-components'
 import Input from '../../components/Input'
+
+export const ContainerInputSearch = styled(Animated.View)`
+    
+`
 
 const { containerInputSearch } = StyleSheet.create({
     containerInputSearch: {
