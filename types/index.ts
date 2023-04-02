@@ -14,6 +14,7 @@ export type INavigation = {
   AdminHome: undefined
   TeacherHome: undefined
   AdminNotify: undefined
+  AdminStudent: undefined
   AdminDocuments: undefined
   AdminNotifyEmail: undefined
   AdminSpreadsheets: undefined

@@ -1,6 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import { INavigation } from '../types'
-import { AdminHome, AdminNotify, AdminDocuments, AdminNotifyEmail, AdminSpreadsheets, AdminNotifyWhatsapp, AdminDocumentsDeclaration, AdminNotifyWhatsappReportCard } from '../pages/Admin'
+import { AdminHome, AdminNotify, AdminStudent, AdminDocuments, AdminNotifyEmail, AdminSpreadsheets, AdminNotifyWhatsapp, AdminDocumentsDeclaration, AdminNotifyWhatsappReportCard } from '../pages/Admin'
 import SelectStudent from '../pages/SelectStudent'
 
 function AdminStack() {
@@ -15,6 +15,7 @@ function AdminStack() {
         >
             <Screen name="AdminHome" component={AdminHome}/>
             <Screen name="AdminNotify" component={AdminNotify}/>
+            <Screen name="AdminStudent" component={AdminStudent}/>
             <Screen name="SelectStudent" component={SelectStudent}/>
             <Screen name="AdminDocuments" component={AdminDocuments}/>
             <Screen name="AdminNotifyEmail" component={AdminNotifyEmail}/>
