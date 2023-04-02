@@ -13,8 +13,11 @@ export type INavigation = {
   Home: undefined
   AdminHome: undefined
   TeacherHome: undefined
+  AdminNotify: undefined
   AdminDocuments: undefined
+  AdminNotifyEmail: undefined
   AdminSpreadsheets: undefined
+  AdminNotifyWhatsapp: undefined
   Sign: {
     type: ITypeLogin
   }
@@ -25,6 +28,9 @@ export type INavigation = {
     next: keyof INavigation
   }
   AdminDocumentsDeclaration: {
+    studentID: string
+  }
+  AdminNotifyWhatsappReportCard: {
     studentID: string
   }
 }

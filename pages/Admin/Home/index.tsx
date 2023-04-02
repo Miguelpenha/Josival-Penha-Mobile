@@ -11,12 +11,15 @@ function Home() {
 
   return (
     <ContainerDefault scroll>
-      <HeaderBack onPress={logout}>Admin</HeaderBack>
+      <HeaderBack icon="logout" onPress={logout}>Admin</HeaderBack>
       <Button index={1} title="Planilhas" onPress={() => navigation.navigate('AdminSpreadsheets')}>
         <Icon icon="google-spreadsheet" typeIcon="MaterialCommunityIcons"/>
       </Button>
       <Button index={2} title="Documentos" onPress={() => navigation.navigate('AdminDocuments')}>
         <Icon icon="description" typeIcon="MaterialIcons"/>
+      </Button>
+      <Button index={3} title="Notificar" onPress={() => navigation.navigate('AdminNotify')}>
+        <Icon icon="notifications" typeIcon="MaterialIcons"/>
       </Button>
     </ContainerDefault>
   )
