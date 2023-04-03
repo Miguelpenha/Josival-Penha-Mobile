@@ -1,5 +1,5 @@
 import { MaterialIcons } from '@expo/vector-icons'
-import { FC, memo } from 'react'
+import { FC } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { Container, ContainerIcon, Icon, Title } from './style'
 import { FadeInUp } from 'react-native-reanimated'
@@ -24,4 +24,4 @@ const HeaderBack: FC<Iprops> = ({ onPress, icon='arrow-back-ios', children }) =>
     )
 }
 
-export default memo(HeaderBack)
+export default HeaderBack

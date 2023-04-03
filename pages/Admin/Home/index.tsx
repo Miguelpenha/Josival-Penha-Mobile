@@ -1,17 +1,19 @@
-import useLogout from './useLogout'
 import { useNavigation } from '@react-navigation/native'
+import useModalize from '../../../components/useModalize'
 import ContainerDefault from '../../../components/ContainerDefault'
 import HeaderBack from '../../../components/HeaderBack'
 import Button from '../../../components/Button'
 import Icon from '../../../components/Icon'
+import { Modalize } from 'react-native-modalize'
+import ModalizeLogout from './ModalizeLogout'
 
 function Home() {
-  const logout = useLogout()
   const navigation = useNavigation()
+  const { modalize: modalizeLogout, props: propsModalizeLogout } = useModalize()
 
-  return (
+  return <>
     <ContainerDefault scroll>
-      <HeaderBack icon="logout" onPress={logout}>Admin</HeaderBack>
+      <HeaderBack icon="logout" onPress={modalizeLogout.open}>Admin</HeaderBack>
       <Button index={1} title="Alunos" onPress={() => navigation.navigate('SelectStudent', {
         next: 'AdminStudent'
       })}>
@@ -27,7 +29,10 @@ function Home() {
         <Icon icon="notifications" typeIcon="MaterialIcons"/>
       </Button>
     </ContainerDefault>
-  )
+    <Modalize {...propsModalizeLogout}>
+      <ModalizeLogout modalize={modalizeLogout.ref}/>
+    </Modalize>
+  </>
 }
 
 export default Home

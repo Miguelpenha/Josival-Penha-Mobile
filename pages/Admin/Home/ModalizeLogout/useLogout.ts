@@ -1,4 +1,4 @@
-import useAuth from '../../../contexts/authContext'
+import useAuth from '../../../../contexts/authContext'
 import { useNavigation } from '@react-navigation/native'
 import Toast from 'react-native-toast-message'
 
