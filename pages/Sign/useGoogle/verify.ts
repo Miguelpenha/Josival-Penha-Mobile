@@ -1,5 +1,5 @@
 import { AuthSessionResult } from 'expo-auth-session'
-import { IAuthContext } from '../../../contexts/authContext/type'
+import IAuthContext from '../../../contexts/authContext/type'
 import Toast from 'react-native-toast-message'
 
 async function verify(response: AuthSessionResult, loginGoogle: IAuthContext['teacher']['loginGoogle'] | IAuthContext['admin']['loginGoogle']) {

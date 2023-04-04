@@ -9,7 +9,7 @@ import InitialStack from './InitialStack'
 
 function Routes() {
   const theme = useTheme()
-  const { isAdmin, teacherID } = useAuth()
+  const { adminIndex, teacherID } = useAuth()
 
   return (
     <>
@@ -19,7 +19,7 @@ function Routes() {
         backgroundColor={theme.backgroundColor}
       />
       <NavigationContainer theme={themeRouter}>
-        {isAdmin ? <AdminStack/> : (
+        {adminIndex ? <AdminStack/> : (
           teacherID ? <TeacherStack/> : <InitialStack/>
         )}
       </NavigationContainer>
