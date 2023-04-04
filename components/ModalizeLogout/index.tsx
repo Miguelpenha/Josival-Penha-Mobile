@@ -1,16 +1,18 @@
+import { ITypeLogin } from '../../types'
 import { RefObject, FC } from 'react'
 import { IHandles } from 'react-native-modalize/lib/options'
 import useLogout from './useLogout'
 import { Title } from './style'
 import { FadeInUp } from 'react-native-reanimated'
-import Button from '../../../../components/Button'
+import Button from '../Button'
 
 interface IProps {
+    type: ITypeLogin
     modalize: RefObject<IHandles>
 }
 
-const ModalizeLogout: FC<IProps> = ({ modalize }) => {
-    const logout = useLogout()
+const ModalizeLogout: FC<IProps> = ({ type, modalize }) => {
+    const logout = useLogout(type)
 
     async function handleLogout() {
         modalize.current.close()

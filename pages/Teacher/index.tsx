@@ -1,15 +1,20 @@
-import useLogout from './useLogout'
+import useModalize from '../../components/useModalize'
 import ContainerDefault from '../../components/ContainerDefault'
 import HeaderBack from '../../components/HeaderBack'
+import { Modalize } from 'react-native-modalize'
+import ModalizeLogout from '../../components/ModalizeLogout'
 
-function Home() {
-  const logout = useLogout()
+function Teacher() {
+  const { modalize: modalizeLogout, props: propsModalizeLogout } = useModalize()
 
-  return (
-    <ContainerDefault>
-      <HeaderBack onPress={logout}>Professora</HeaderBack>
+  return <>
+    <ContainerDefault scroll>
+      <HeaderBack icon="logout" onPress={modalizeLogout.open}>Professora</HeaderBack>
     </ContainerDefault>
-  )
+    <Modalize {...propsModalizeLogout}>
+      <ModalizeLogout type="teacher" modalize={modalizeLogout.ref}/>
+    </Modalize>
+  </>
 }
 
-export default Home
+export default Teacher

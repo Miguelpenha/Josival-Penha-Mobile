@@ -5,7 +5,7 @@ import HeaderBack from '../../../components/HeaderBack'
 import Button from '../../../components/Button'
 import Icon from '../../../components/Icon'
 import { Modalize } from 'react-native-modalize'
-import ModalizeLogout from './ModalizeLogout'
+import ModalizeLogout from '../../../components/ModalizeLogout'
 
 function Home() {
   const navigation = useNavigation()
@@ -30,7 +30,7 @@ function Home() {
       </Button>
     </ContainerDefault>
     <Modalize {...propsModalizeLogout}>
-      <ModalizeLogout modalize={modalizeLogout.ref}/>
+      <ModalizeLogout type="admin" modalize={modalizeLogout.ref}/>
     </Modalize>
   </>
 }
