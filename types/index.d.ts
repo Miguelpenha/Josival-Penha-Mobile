@@ -7,10 +7,11 @@ export interface ITheme {
   backgroundColorSecondary: string
 }
 
-export type ITypeLogin = 'admin' | 'teacher'
+export type ITypeLogin = 'admin' | 'teacher' | false
 
 export type INavigation = {
   Home: undefined
+  Settings: undefined
   AdminHome: undefined
   TeacherHome: undefined
   AdminNotify: undefined
@@ -34,9 +35,4 @@ export type INavigation = {
   AdminNotifyWhatsappReportCard: {
     studentID: string
   }
-}
-
-export interface ITeacher {
-  id: string
-  nome: string
 }

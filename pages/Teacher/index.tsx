@@ -9,7 +9,7 @@ function Teacher() {
 
   return <>
     <ContainerDefault scroll>
-      <HeaderBack icon="logout" onPress={modalizeLogout.open}>Professora</HeaderBack>
+      <HeaderBack settings icon="logout" onPress={modalizeLogout.open}>Professora</HeaderBack>
     </ContainerDefault>
     <Modalize {...propsModalizeLogout}>
       <ModalizeLogout type="teacher" modalize={modalizeLogout.ref}/>

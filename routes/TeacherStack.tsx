@@ -1,5 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import { INavigation } from '../types'
+import Settings from '../pages/Settings'
 import TeacherHome from '../pages/Teacher'
 
 function TeacherStack() {
@@ -12,6 +13,7 @@ function TeacherStack() {
                 headerShown: false
             }}
         >
+            <Screen name="Settings" component={Settings}/>
             <Screen name="TeacherHome" component={TeacherHome}/>
         </Navigator>
     )

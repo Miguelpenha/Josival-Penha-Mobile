@@ -13,7 +13,7 @@ function Home() {
 
   return <>
     <ContainerDefault scroll>
-      <HeaderBack icon="logout" onPress={modalizeLogout.open}>Admin</HeaderBack>
+      <HeaderBack settings icon="logout" onPress={modalizeLogout.open}>Admin</HeaderBack>
       <Button index={1} title="Alunos" onPress={() => navigation.navigate('SelectStudent', {
         next: 'AdminStudent'
       })}>
