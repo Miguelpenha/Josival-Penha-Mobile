@@ -11,6 +11,7 @@ import { FadeInDown } from 'react-native-reanimated'
 import Icon from '../../components/Icon'
 import { Modalize } from 'react-native-modalize'
 import ModalizeLogout from '../../components/ModalizeLogout'
+import Loading from '../../components/Loading'
 
 function Settings() {
   const { modalize: modalizeLogout, props: propsModalizeLogout } = useModalize()
@@ -33,13 +34,15 @@ function Settings() {
     <ContainerDefault scroll>
       <HeaderBack>Configurações</HeaderBack>
       <Container>
-        <ContainerData onPress={async () => await handleCopy(admin || teacher)}>
-          <Label entering={FadeInDown.duration(500).delay(100)}>Logado como </Label>
-          <Data entering={FadeInDown.duration(500).delay(200)}>{admin || teacher}</Data>
-        </ContainerData>
-        <ButtonLogout index={1} title="Logout" onPress={modalizeLogout.open}>
-          <Icon icon="logout"/>
-        </ButtonLogout>
+        {(admin || teacher) ? <>
+            <ContainerData onPress={async () => await handleCopy(admin || teacher)}>
+              <Label entering={FadeInDown.duration(500).delay(100)}>Logado como </Label>
+              <Data entering={FadeInDown.duration(500).delay(200)}>{admin || teacher}</Data>
+            </ContainerData>
+            <ButtonLogout index={1} title="Logout" onPress={modalizeLogout.open}>
+              <Icon icon="logout"/>
+            </ButtonLogout>
+        </> : <Loading/>}
       </Container>
     </ContainerDefault>
     <Modalize {...propsModalizeLogout}>
