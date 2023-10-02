@@ -1,9 +1,8 @@
-import Constants from 'expo-constants'
 import * as Updates from 'expo-updates'
 import { green } from './colorsLogs'
 
 async function updateApp(response?: boolean): Promise<void | boolean> {
-  if (Constants.expoConfig?.extra?.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production') {
     const { isAvailable } = await Updates.checkForUpdateAsync()
 
     if (isAvailable) {

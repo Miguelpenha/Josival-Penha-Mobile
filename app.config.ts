@@ -1,10 +1,4 @@
-import dotenv from 'dotenv'
-import path from 'path'
 import { ConfigContext, ExpoConfig } from 'expo/config'
-
-dotenv.config({
-  path: process.env.PATH_ENV_FILE ? process.env.PATH_ENV_FILE : path.resolve(__dirname, '.env')
-})
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
