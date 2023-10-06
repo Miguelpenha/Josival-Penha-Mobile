@@ -15,12 +15,12 @@ export const ContainerIcon = styled.TouchableOpacity`
 `
 
 export const Icon = styled(MaterialIcons)`
-    color: ${props => props.theme.secondaryColor};
+    color: ${props => props.theme.primary};
 `
 
 export const Title = styled.Text`
     font-size: ${RFPercentage(3.2)}px;
-    color: ${props => props.theme.secondaryColor};
+    color: ${props => props.theme.primary};
 `
 
 export const ContainerIconSettings = styled.TouchableOpacity`
@@ -30,5 +30,5 @@ export const ContainerIconSettings = styled.TouchableOpacity`
 `
 
 export const IconSettings = styled(MaterialIcons)`
-    color: ${props => props.theme.secondaryColor};
+    color: ${props => props.theme.primary};
 `

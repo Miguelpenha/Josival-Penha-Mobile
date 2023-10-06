@@ -13,13 +13,14 @@ export const Container = styled(Animated.createAnimatedComponent(TouchableOpacit
     align-items: center;
     flex-direction: row;
     justify-content: center;
-    background-color: ${props => props.theme.backgroundColorSecondary};
+    background-color: ${props => props.theme.primary};
 `
 
 export const Text = styled.Text`
+    margin: auto;
     font-weight: bold;
     font-size: ${RFPercentage(3.2)}px;
-    color: ${props => props.theme.primary};
+    color: ${props => props.theme.secondaryColor};
 `
 
 export const Loading = styled(LoadingRaw)`

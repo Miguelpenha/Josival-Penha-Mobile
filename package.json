@@ -4,7 +4,6 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
-    "postinstall": "patch-package",
     "build": "eas build --profile main --platform android"
   },
   "dependencies": {
@@ -38,7 +37,8 @@
     "react-native-svg": "13.9.0",
     "react-native-toast-message": "^2.1.6",
     "styled-components": "^5.3.11",
-    "swr": "^2.2.4"
+    "swr": "^2.2.4",
+    "@shopify/flash-list": "1.4.3"
   },
   "devDependencies": {
     "@babel/core": "^7.23.0",
