@@ -14,7 +14,7 @@ function Routes() {
   return (
     <>
       <StatusBar
-        style="light"
+        style="dark"
         animated={true}
         backgroundColor={theme.backgroundColor}
       />

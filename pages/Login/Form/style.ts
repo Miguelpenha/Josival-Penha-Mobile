@@ -9,7 +9,7 @@ export const Container = styled(Animated.View)`
     margin-top: 20%;
     align-self: center;
     border-radius: 10px;
-    background-color: ${props => props.theme.backgroundColorSecondary};
+    background-color: ${props => props.theme.primary};
 `
 
 export const Field = styled(Animated.View)`
@@ -22,5 +22,5 @@ export const Label = styled.Text`
     margin-bottom: 4%;
     font-weight: bold;
     font-size: ${RFPercentage(2.8)}px;
-    color: ${props => props.theme.primary};
+    color: ${props => props.theme.secondaryColor};
 `

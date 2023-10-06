@@ -3,7 +3,7 @@ import Button from './Button'
 
 const ButtonSubmit = styled(Button)`
     width: 75%;
-    background-color: ${props => props.theme.backgroundColor};
+    background-color: ${props => props.theme.color};
 `
 
 export default ButtonSubmit

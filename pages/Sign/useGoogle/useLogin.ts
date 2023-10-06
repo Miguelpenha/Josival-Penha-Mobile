@@ -6,8 +6,8 @@ function useLogin(promptAsync: (options?: AuthRequestPromptOptions) => Promise<A
 
     async function login() {
         await promptAsync({
+            toolbarColor: theme.primary,
             controlsColor: theme.primary,
-            toolbarColor: theme.backgroundColor,
             secondaryToolbarColor: theme.backgroundColorSecondary
         })
     }

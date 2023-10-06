@@ -15,7 +15,7 @@ export const ContainerIcon = styled.TouchableOpacity`
 
 export const Icon = styled(MaterialIcons)`
     margin-left: 4%;
-    color: ${props => props.theme.color};
+    color: ${props => props.theme.secondaryColor};
 `
 
 interface IInputRaw {
