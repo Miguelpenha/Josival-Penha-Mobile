@@ -1,6 +1,6 @@
 import { ConfigContext, ExpoConfig } from 'expo/config'
 
-export default ({ config }: ConfigContext): ExpoConfig => ({
+export default ({ config }: ConfigContext) => ({
   ...config,
   scheme: 'josival-penha',
   originalFullName: '@miguelpenha/Josival-Penha',
@@ -44,4 +44,4 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   runtimeVersion: {
     policy: 'sdkVersion'
   }
-})
+} as ExpoConfig)
