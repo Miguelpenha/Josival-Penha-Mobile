@@ -29,7 +29,7 @@ function Home() {
         <Icon icon="notifications" typeIcon="MaterialIcons"/>
       </Button>
     </ContainerDefault>
-    <Modalize {...propsModalizeLogout}>
+    <Modalize avoidKeyboardLikeIOS={true} {...propsModalizeLogout}>
       <ModalizeLogout type="admin" modalize={modalizeLogout.ref}/>
     </Modalize>
   </>

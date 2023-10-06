@@ -45,7 +45,7 @@ function Settings() {
         </> : <Loading/>}
       </Container>
     </ContainerDefault>
-    <Modalize {...propsModalizeLogout}>
+    <Modalize avoidKeyboardLikeIOS={true} {...propsModalizeLogout}>
       <ModalizeLogout type={type} modalize={modalizeLogout.ref}/>
     </Modalize>
   </>

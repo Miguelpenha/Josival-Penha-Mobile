@@ -11,7 +11,7 @@ function Teacher() {
     <ContainerDefault scroll>
       <HeaderBack settings icon="logout" onPress={modalizeLogout.open}>Professora</HeaderBack>
     </ContainerDefault>
-    <Modalize {...propsModalizeLogout}>
+    <Modalize avoidKeyboardLikeIOS={true} {...propsModalizeLogout}>
       <ModalizeLogout type="teacher" modalize={modalizeLogout.ref}/>
     </Modalize>
   </>
