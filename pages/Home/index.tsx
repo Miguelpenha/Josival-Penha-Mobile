@@ -10,7 +10,7 @@ function Home() {
 
     return (
         <ContainerDefault>
-            <Title entering={FadeInDown}>Faça login {process.env.EXPO_PUBLIC_TEST}</Title>
+            <Title entering={FadeInDown}>Faça login</Title>
             <Button index={1} title="Professoras" onPress={() => navigation.navigate('Sign', { type: 'teacher' })}>
                 <Icon icon="teacher" typeIcon="Custom"/>
             </Button>
