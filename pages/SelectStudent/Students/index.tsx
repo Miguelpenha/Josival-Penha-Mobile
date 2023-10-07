@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useMemo } from 'react'
 import api from '../../../services/api'
 import IStudent from '../../../types/student'
 import useRenderItem from './useRenderItem'
@@ -12,11 +12,17 @@ interface IProps {
 }
 
 const Students: FC<IProps> = ({ search }) => {
-    const { data: students, mutate } = api.get<IStudent[]>('/students')
+    const { data: studentsRaw, mutate } = api.get<IStudent[]>('/students')
     const renderItem = useRenderItem(search)
     const refreshProps = useRefreshProps(mutate)
     
-    if (students) {
+    if (studentsRaw) {
+        const students = useMemo(() => {
+            return studentsRaw.sort((a, b) => {
+                return a.name.localeCompare(b.name)
+            })
+        }, [studentsRaw])
+
         return (
             <Container
                 data={students}
