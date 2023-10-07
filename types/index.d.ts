@@ -32,7 +32,4 @@ export type INavigation = {
   AdminDocumentsDeclaration: {
     studentID: string
   }
-  AdminNotifyWhatsappReportCard: {
-    studentID: string
-  }
 }

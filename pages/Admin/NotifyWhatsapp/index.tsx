@@ -1,20 +1,30 @@
-import { useNavigation } from '@react-navigation/native'
+import base from '../../../services/api/base'
 import ContainerDefault from '../../../components/ContainerDefault'
 import HeaderBack from '../../../components/HeaderBack'
 import { Container } from './style'
 import Button from '../../../components/Button'
 import Icon from '../../../components/Icon'
+import Toast from 'react-native-toast-message'
 
 function NotifyWhatsapp() {
-  const navigation = useNavigation()
+  async function handleSendMessage() {
+    const { data } = await base.post<{ send: boolean }>('/notify/whatsapp/whatsapp:558183705775', {
+      month: '10'
+    })
+
+    if (data.send) {
+      Toast.show({
+        type: 'success',
+        text1: 'Boleto enviado com sucesso!'
+      })
+    }
+  }
 
   return (
     <ContainerDefault scroll>
       <HeaderBack>Notificar</HeaderBack>
       <Container>
-        <Button index={1} title="Boletim" onPress={() => navigation.navigate('SelectStudent', {
-          next: 'AdminNotifyWhatsappReportCard'
-        })}>
+        <Button index={1} title="Boleto" onPress={handleSendMessage}>
           <Icon icon="star" typeIcon="MaterialIcons"/>
         </Button>
       </Container>
