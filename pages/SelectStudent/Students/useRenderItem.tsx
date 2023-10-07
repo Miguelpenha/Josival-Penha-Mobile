@@ -1,6 +1,6 @@
 import { INavigation } from '../../../types'
 import { useNavigation, useRoute } from '@react-navigation/native'
-import { ListRenderItem } from 'react-native'
+import { ListRenderItemInfo } from '@shopify/flash-list'
 import IStudent from '../../../types/student'
 import Student from './Student'
 
@@ -8,13 +8,13 @@ interface IParams {
     next: keyof INavigation
 }
 
-function useRender(search: string) {
+function useRenderItem(search: string) {
     const navigation = useNavigation()
     const { next } = useRoute().params as IParams
 
-    const render: ListRenderItem<IStudent> = ({ item: student, index }) => {
+    function renderItem({ item: student, index }: ListRenderItemInfo<IStudent>) {
         const searchInclude = student.name.toUpperCase().includes(search.toUpperCase())
-        
+
         function handlePress() {
             const params: any = {
                 studentID: student._id
@@ -30,7 +30,7 @@ function useRender(search: string) {
         }
     }
 
-    return render
+    return renderItem
 }
 
-export default useRender
+export default useRenderItem

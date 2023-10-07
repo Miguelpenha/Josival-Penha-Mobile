@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { useTheme } from 'styled-components'
 import Container from './Container'
 import HeaderBack from '../../components/HeaderBack'
-import { FadeIn } from 'react-native-reanimated'
 import { ContainerInputSearch, InputSearch } from './style'
+import { FadeIn } from 'react-native-reanimated'
 import Students from './Students'
 
 function SelectStudent() {
