@@ -29,4 +29,5 @@ export const Data = styled(Animated.Text)`
 
 export const ButtonLogout = styled(Button)`
     margin-top: 15%;
+    background-color: red;
 `

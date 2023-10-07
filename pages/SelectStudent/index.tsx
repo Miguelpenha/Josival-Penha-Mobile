@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { useTheme } from 'styled-components'
 import Container from './Container'
 import HeaderBack from '../../components/HeaderBack'
-import { ContainerInputSearch, InputSearch } from './style'
-import { FadeInUp } from 'react-native-reanimated'
+import Animated, { FadeInUp } from 'react-native-reanimated'
+import { InputSearch } from './style'
 import Students from './Students'
 
 function SelectStudent() {
@@ -13,7 +13,7 @@ function SelectStudent() {
   return (
     <Container>
       <HeaderBack>Selecione um aluno</HeaderBack>
-      <ContainerInputSearch entering={FadeInUp.delay(100).duration(400)}>
+      <Animated.View entering={FadeInUp.delay(100).duration(400)}>
         <InputSearch
           value={search}
           autoCapitalize="words"
@@ -23,7 +23,7 @@ function SelectStudent() {
           selectionColor={theme.primary}
           placeholderTextColor={theme.primary}
         />
-      </ContainerInputSearch>
+      </Animated.View>
       <Students search={search}/>
     </Container>
   )

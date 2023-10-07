@@ -3,7 +3,7 @@ import api from '../../../services/api'
 import IStudent from '../../../types/student'
 import useRenderItem from './useRenderItem'
 import useRefreshProps from '../../../components/useRefreshProps'
-import { Container } from './style'
+import { FlashList } from '@shopify/flash-list'
 import { RefreshControl } from 'react-native'
 import Loading from '../../../components/Loading'
 
@@ -21,7 +21,7 @@ const Students: FC<IProps> = ({ search }) => {
     
     if (students) {
         return (
-            <Container
+            <FlashList
                 data={students}
                 extraData={search}
                 estimatedItemSize={55}

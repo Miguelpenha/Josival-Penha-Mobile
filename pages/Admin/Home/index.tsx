@@ -4,6 +4,7 @@ import ContainerDefault from '../../../components/ContainerDefault'
 import HeaderBack from '../../../components/HeaderBack'
 import Button from '../../../components/Button'
 import Icon from '../../../components/Icon'
+import { ButtonSpreadsheet } from './style'
 import { Modalize } from 'react-native-modalize'
 import ModalizeLogout from '../../../components/ModalizeLogout'
 
@@ -19,9 +20,9 @@ function Home() {
       })}>
         <Icon icon="school" typeIcon="MaterialIcons"/>
       </Button>
-      <Button index={2} title="Planilhas" onPress={() => navigation.navigate('AdminSpreadsheets')}>
+      <ButtonSpreadsheet index={2} title="Planilhas" onPress={() => navigation.navigate('AdminSpreadsheets')}>
         <Icon icon="google-spreadsheet" typeIcon="MaterialCommunityIcons"/>
-      </Button>
+      </ButtonSpreadsheet>
       <Button index={3} title="Documentos" onPress={() => navigation.navigate('AdminDocuments')}>
         <Icon icon="description" typeIcon="MaterialIcons"/>
       </Button>
