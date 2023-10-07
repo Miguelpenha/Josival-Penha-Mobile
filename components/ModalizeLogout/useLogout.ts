@@ -14,7 +14,7 @@ function useLogout(type: ITypeLogin) {
             await logoutTeacher()
         }
 
-        navigation.navigate('Sign', { type })
+        navigation.navigate('Home')
 
         Toast.show({
             type: 'error',

@@ -3,7 +3,7 @@ import { useTheme } from 'styled-components'
 import Container from './Container'
 import HeaderBack from '../../components/HeaderBack'
 import { ContainerInputSearch, InputSearch } from './style'
-import { FadeIn } from 'react-native-reanimated'
+import { FadeInUp } from 'react-native-reanimated'
 import Students from './Students'
 
 function SelectStudent() {
@@ -13,7 +13,7 @@ function SelectStudent() {
   return (
     <Container>
       <HeaderBack>Selecione um aluno</HeaderBack>
-      <ContainerInputSearch entering={FadeIn.duration(400)}>
+      <ContainerInputSearch entering={FadeInUp.delay(100).duration(400)}>
         <InputSearch
           value={search}
           autoCapitalize="words"

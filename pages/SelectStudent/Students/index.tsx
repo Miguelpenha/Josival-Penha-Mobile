@@ -15,14 +15,11 @@ const Students: FC<IProps> = ({ search }) => {
     const { data: studentsRaw, mutate } = api.get<IStudent[]>('/students')
     const renderItem = useRenderItem(search)
     const refreshProps = useRefreshProps(mutate)
+    const students = useMemo(() => 
+        studentsRaw && studentsRaw.sort((a, b) => a.name.localeCompare(b.name))
+    , [studentsRaw])
     
-    if (studentsRaw) {
-        const students = useMemo(() => {
-            return studentsRaw.sort((a, b) => {
-                return a.name.localeCompare(b.name)
-            })
-        }, [studentsRaw])
-
+    if (students) {
         return (
             <Container
                 data={students}
