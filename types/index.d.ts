@@ -20,6 +20,9 @@ export type INavigation = {
   AdminNotifyEmail: undefined
   AdminSpreadsheets: undefined
   AdminNotifyWhatsapp: undefined
+  AdminNotifyWhatsappSend: {
+    studentID: string
+  }
   Sign: {
     type: ITypeLogin
   }
