@@ -19,7 +19,7 @@ const Input: FC<Iprops> = ({ style, icon, styleContainer, ...props }) => {
                     <Icon name={`visibility${hidden ? '-off' : ''}`} size={25}/>
                 </ContainerIcon>
             </>}
-            <InputRaw icon={icon} {...animation} {...props}/>
+            <InputRaw secureTextEntry={icon ? !hidden : hidden} icon={icon} {...animation} {...props}/>
         </Container>
     )
 }

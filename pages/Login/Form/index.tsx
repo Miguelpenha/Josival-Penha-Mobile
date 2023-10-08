@@ -42,7 +42,6 @@ function Form() {
                     icon
                     value={password}
                     placeholder="Senha..."
-                    secureTextEntry={true}
                     autoComplete="password"
                     onChangeText={setPassword}
                     cursorColor={theme.primary}
