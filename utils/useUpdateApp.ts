@@ -5,24 +5,34 @@ import { useEffect } from 'react'
 
 function useUpdateApp() {
     async function updateApp() {
+        const data: any = {  }
+
         if (process.env.NODE_ENV === 'production') {
+            data.env = 'production'
+
             const { isAvailable } = await Updates.checkForUpdateAsync()
 
-            if (isAvailable && (Updates.releaseChannel === 'production' || Updates.releaseChannel === 'main')) {
-                console.log(green('>> Update Available'))
+            if (isAvailable) {
+                data.isAvailable = true
 
-                await Updates.fetchUpdateAsync()
+                if (Updates.releaseChannel === 'production' || Updates.releaseChannel === 'main') {
+                    data.channel = Updates.releaseChannel
 
-                Toast.show({
-                    type: 'info',
-                    autoHide: false,
-                    text1: 'Clique aqui para atualizar seu app',
-                    async onPress() {
-                        await Updates.reloadAsync()
-                    }
-                })
+                    console.log(green('>> Update Available'))
+
+                    await Updates.fetchUpdateAsync()
+                }
             }
         }
+
+        Toast.show({
+            type: 'info',
+            autoHide: false,
+            text1: JSON.stringify(data),
+            async onPress() {
+                await Updates.reloadAsync()
+            }
+        })
     }
 
     useEffect(() => {
