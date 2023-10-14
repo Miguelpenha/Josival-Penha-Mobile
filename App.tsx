@@ -22,8 +22,6 @@ function App() {
         console.log(green('>> App Started'))
 
         if (update) {
-          await Updates.reloadAsync()
-
           /*
           Toast.show({
             type: 'info',

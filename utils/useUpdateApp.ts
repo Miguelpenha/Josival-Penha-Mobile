@@ -11,6 +11,8 @@ function useUpdateApp() {
 
                 const update = await Updates.fetchUpdateAsync()
 
+                await Updates.reloadAsync()
+
                 return update
             } else {
                 return false
