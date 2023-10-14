@@ -4,6 +4,7 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
+    "update": "eas update --auto",
     "build": "eas build --profile main --platform android"
   },
   "dependencies": {

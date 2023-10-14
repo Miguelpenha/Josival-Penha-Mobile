@@ -1,9 +1,9 @@
-name: build and update
+name: update
 on: push
 
 jobs:
   build:
-    name: EAS build and update android
+    name: EAS update android
     runs-on: ubuntu-latest
     steps:
       - name: Check for ENV_FILE
@@ -54,9 +54,6 @@ jobs:
         run: |
           touch .env
           echo "${{ secrets.ENV_FILE}}" >> .env
-
-      - name: Create build android
-        run: eas build --profile main --platform android --no-wait --non-interactive
 
       - name: Create update android
         run: eas update --auto
