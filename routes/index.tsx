@@ -1,5 +1,6 @@
 import { useTheme } from 'styled-components'
 import useAuth from '../contexts/authContext'
+import useUpdateApp from '../utils/useUpdateApp'
 import { StatusBar } from 'expo-status-bar'
 import { NavigationContainer } from '@react-navigation/native'
 import themeRouter from './theme'
@@ -10,6 +11,8 @@ import InitialStack from './InitialStack'
 function Routes() {
   const theme = useTheme()
   const { adminIndex, teacherID } = useAuth()
+  
+  useUpdateApp()
 
   return (
     <>
