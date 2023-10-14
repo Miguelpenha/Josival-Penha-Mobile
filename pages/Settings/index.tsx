@@ -1,6 +1,7 @@
 import useModalize from '../../components/useModalize'
 import useAdmin from '../../components/useAdmin'
 import useTeacher from '../../components/useTeacher'
+import useAnimation from './useAnimation'
 import useType from '../../components/useType'
 import * as Clipboard from 'expo-clipboard'
 import toast from 'react-native-toast-message'
@@ -17,6 +18,7 @@ function Settings() {
   const { modalize: modalizeLogout, props: propsModalizeLogout } = useModalize()
   const admin = useAdmin()
   const teacher = useTeacher()
+  const animation = useAnimation(async () => await handleCopy(admin || teacher))
   const type = useType()
   
   async function handleCopy(value: string | false) {
@@ -35,9 +37,9 @@ function Settings() {
       <HeaderBack>Configurações</HeaderBack>
       <Container>
         {(admin || teacher) ? <>
-            <ContainerData entering={FadeInDown.duration(500)} activeOpacity={0.5} onPress={async () => await handleCopy(admin || teacher)}>
-              <Label entering={FadeInDown.duration(500).delay(100)}>Logado como </Label>
-              <Data entering={FadeInDown.duration(500).delay(200)}>{admin || teacher}</Data>
+            <Label entering={FadeInDown.duration(500)}>Logado como </Label>
+            <ContainerData activeOpacity={0.5} {...animation}>
+              <Data>{admin || teacher}</Data>
             </ContainerData>
             <ButtonLogout index={1} title="Logout" onPress={modalizeLogout.open}>
               <Icon icon="logout"/>
