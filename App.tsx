@@ -17,23 +17,10 @@ function App() {
   const updateApp = useUpdateApp()
 
   useEffect(() => {
-    updateApp().then(update => {
-      SplashScreen.hideAsync().then(async () => {
-        console.log(green('>> App Started'))
+    SplashScreen.hideAsync().then(async () => {
+      console.log(green('>> App Started'))
 
-        if (update) {
-          /*
-          Toast.show({
-            type: 'info',
-            autoHide: false,
-            text1: 'Clique aqui para atualizar o app',
-            async onPress() {
-              await Updates.reloadAsync()
-            }
-          })
-          */
-        }
-      })
+      await updateApp()
     })
   }, [])
 

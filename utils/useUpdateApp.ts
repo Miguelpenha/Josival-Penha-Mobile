@@ -1,5 +1,6 @@
 import * as Updates from 'expo-updates'
 import { green } from './colorsLogs'
+import Toast from 'react-native-toast-message'
 
 function useUpdateApp() {
     async function updateApp() {
@@ -9,11 +10,18 @@ function useUpdateApp() {
             if (isAvailable) {
                 console.log(green('>> Update Available'))
 
-                const update = await Updates.fetchUpdateAsync()
+                await Updates.fetchUpdateAsync()
 
-                await Updates.reloadAsync()
+                Toast.show({
+                    type: 'info',
+                    autoHide: false,
+                    text1: 'Clique aqui para atualizar o app',
+                    async onPress() {
+                      await Updates.reloadAsync()
+                    }
+                })
 
-                return update
+                return true
             } else {
                 return false
             }
