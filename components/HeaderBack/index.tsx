@@ -1,3 +1,4 @@
+import { ITheme } from '../../types'
 import { MaterialIcons } from '@expo/vector-icons'
 import { FC } from 'react'
 import { useNavigation } from '@react-navigation/native'
@@ -9,21 +10,22 @@ interface Iprops {
     children?: string
     settings?: boolean
     onPress?: () => void
+    color?: keyof ITheme | string
     icon?: keyof typeof MaterialIcons.glyphMap
 }
 
-const HeaderBack: FC<Iprops> = ({ onPress, icon='arrow-back-ios', children, settings=false }) => {
+const HeaderBack: FC<Iprops> = ({ onPress, color='primary', icon='arrow-back-ios', children, settings=false }) => {
     const navigation = useNavigation()
 
     return (
         <Container entering={FadeInUp}>
             <ContainerIcon onPress={onPress || navigation.goBack}>
-                <Icon name={icon} size={25}/>
+                <Icon color={color} name={icon} size={25}/>
             </ContainerIcon>
-            <Title>{limitText(children, 25)}</Title>
+            <Title color={color}>{limitText(children, 25)}</Title>
             {settings && (
                 <ContainerIconSettings onPress={() => navigation.navigate('Settings')}>
-                    <IconSettings name="settings" size={28}/>
+                    <IconSettings color={color} name="settings" size={28}/>
                 </ContainerIconSettings>
             )}
         </Container>

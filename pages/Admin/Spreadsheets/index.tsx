@@ -5,7 +5,7 @@ import Buttons from './Buttons'
 function Spreadsheets() {
   return (
     <ContainerDefault scroll>
-      <HeaderBack>Planilhas</HeaderBack>
+      <HeaderBack color="#00ac47">Planilhas</HeaderBack>
       <Buttons/>
     </ContainerDefault>
   )

@@ -14,13 +14,21 @@ export const ContainerIcon = styled.TouchableOpacity`
     align-self: center;
 `
 
-export const Icon = styled(MaterialIcons)`
-    color: ${props => props.theme.primary};
+interface IIcon {
+    color: string
+}
+
+export const Icon = styled(MaterialIcons)<IIcon>`
+    color: ${props => props.theme[props.color] || props.color};
 `
 
-export const Title = styled.Text`
+interface ITitle {
+    color: string
+}
+
+export const Title = styled.Text<ITitle>`
     font-size: ${RFPercentage(3.2)}px;
-    color: ${props => props.theme.primary};
+    color: ${props => props.theme[props.color] || props.color};
 `
 
 export const ContainerIconSettings = styled.TouchableOpacity`
@@ -29,6 +37,10 @@ export const ContainerIconSettings = styled.TouchableOpacity`
     align-self: flex-end;
 `
 
-export const IconSettings = styled(MaterialIcons)`
-    color: ${props => props.theme.primary};
+interface IIconSettings {
+    color: string
+}
+
+export const IconSettings = styled(MaterialIcons)<IIconSettings>`
+    color: ${props => props.theme[props.color] || props.color}
 `
