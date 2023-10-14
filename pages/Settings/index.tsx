@@ -35,7 +35,7 @@ function Settings() {
       <HeaderBack>Configurações</HeaderBack>
       <Container>
         {(admin || teacher) ? <>
-            <ContainerData onPress={async () => await handleCopy(admin || teacher)}>
+            <ContainerData entering={FadeInDown.duration(500)} activeOpacity={0.5} onPress={async () => await handleCopy(admin || teacher)}>
               <Label entering={FadeInDown.duration(500).delay(100)}>Logado como </Label>
               <Data entering={FadeInDown.duration(500).delay(200)}>{admin || teacher}</Data>
             </ContainerData>
