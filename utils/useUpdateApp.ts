@@ -8,7 +8,7 @@ function useUpdateApp() {
         if (process.env.NODE_ENV === 'production') {
             const { isAvailable } = await Updates.checkForUpdateAsync()
 
-            if (isAvailable && Updates.releaseChannel === 'production') {
+            if (isAvailable && (Updates.releaseChannel === 'production' || Updates.releaseChannel === 'main')) {
                 console.log(green('>> Update Available'))
 
                 await Updates.fetchUpdateAsync()
