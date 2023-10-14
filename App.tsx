@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
+import useUpdateApp from './utils/useUpdateApp'
 import * as SplashScreen from 'expo-splash-screen'
 import { green } from './utils/colorsLogs'
+import * as Updates from 'expo-updates'
 import { ThemeProvider } from 'styled-components'
 import theme from './theme'
 import { AuthProvider } from './contexts/authContext'
@@ -12,10 +14,25 @@ import toastConfig from './utils/toastConfig'
 SplashScreen.preventAutoHideAsync()
 
 function App() {
+  const updateApp = useUpdateApp()
+
   useEffect(() => {
-    SplashScreen.hideAsync().then(() => 
-      console.log(green('>> App Started'))
-    )
+    updateApp().then(update => {
+      SplashScreen.hideAsync().then(() => {
+        console.log(green('>> App Started'))
+
+        if (update) {
+          Toast.show({
+            type: 'info',
+            autoHide: false,
+            text1: 'Clique aqui para atualizar o app',
+            async onPress() {
+                await Updates.reloadAsync()
+            }
+        })
+        }
+      })
+    })
   }, [])
 
   return (
