@@ -3,7 +3,6 @@ import useUpdateApp from './utils/useUpdateApp'
 import * as SplashScreen from 'expo-splash-screen'
 import { green } from './utils/colorsLogs'
 import * as Updates from 'expo-updates'
-import * as Clipboard from 'expo-clipboard'
 import { ThemeProvider } from 'styled-components'
 import theme from './theme'
 import { AuthProvider } from './contexts/authContext'
@@ -18,23 +17,12 @@ function App() {
   const updateApp = useUpdateApp()
 
   useEffect(() => {
-    updateApp().then(({ isAvailable, update }) => {
-      SplashScreen.hideAsync().then(() => {
+    updateApp().then(update => {
+      SplashScreen.hideAsync().then(async () => {
         console.log(green('>> App Started'))
 
-        // 'Clique aqui para atualizar o app'
-
-        if (isAvailable) {
-          Toast.show({
-            type: 'info',
-            autoHide: false,
-            text1: JSON.stringify(update),
-            async onPress() {
-              await Clipboard.setStringAsync(JSON.stringify(update))
-
-              await Updates.reloadAsync()
-            }
-        })
+        if (update) {
+          await Updates.reloadAsync()
         }
       })
     })
