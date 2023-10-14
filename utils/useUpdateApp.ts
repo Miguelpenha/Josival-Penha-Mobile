@@ -15,9 +15,9 @@ function useUpdateApp() {
             if (isAvailable) {
                 data.isAvailable = true
 
-                if (Updates.releaseChannel === 'production' || Updates.releaseChannel === 'main') {
-                    data.channel = Updates.releaseChannel
+                data.channel = Updates.releaseChannel
 
+                if (Updates.releaseChannel === 'production' || Updates.releaseChannel === 'main') {
                     console.log(green('>> Update Available'))
 
                     await Updates.fetchUpdateAsync()
