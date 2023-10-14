@@ -3,6 +3,7 @@ import useUpdateApp from './utils/useUpdateApp'
 import * as SplashScreen from 'expo-splash-screen'
 import { green } from './utils/colorsLogs'
 import * as Updates from 'expo-updates'
+import * as Clipboard from 'expo-clipboard'
 import { ThemeProvider } from 'styled-components'
 import theme from './theme'
 import { AuthProvider } from './contexts/authContext'
@@ -29,6 +30,8 @@ function App() {
             autoHide: false,
             text1: JSON.stringify(update),
             async onPress() {
+              await Clipboard.setStringAsync(JSON.stringify(update))
+
               await Updates.reloadAsync()
             }
         })
