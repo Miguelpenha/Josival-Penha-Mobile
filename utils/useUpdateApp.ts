@@ -10,11 +10,7 @@ function useUpdateApp() {
             if (isAvailable) {
                 console.log(green('>> Update Available'))
 
-                const update = await Updates.fetchUpdateAsync()
-
-                if (update) {
-                    return true
-                }
+                return true
             } else {
                 return false
             }
