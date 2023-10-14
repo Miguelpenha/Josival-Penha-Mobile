@@ -1,6 +1,5 @@
 import * as Updates from 'expo-updates'
 import { green } from './colorsLogs'
-import Toast from 'react-native-toast-message'
 
 function useUpdateApp() {
     async function updateApp() {
@@ -9,6 +8,8 @@ function useUpdateApp() {
 
             if (isAvailable) {
                 console.log(green('>> Update Available'))
+
+                await Updates.fetchUpdateAsync()
 
                 return true
             } else {
