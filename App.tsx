@@ -27,8 +27,11 @@ function App() {
             autoHide: false,
             text1: 'Clique aqui para atualizar o app',
             async onPress() {
-              await Updates.fetchUpdateAsync()
-              await Updates.reloadAsync()
+              const update = await Updates.fetchUpdateAsync()
+
+              if (update) {
+                await Updates.reloadAsync()
+              }
             }
         })
         }
