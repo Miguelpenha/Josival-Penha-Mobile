@@ -23,6 +23,17 @@ function App() {
 
         if (update) {
           await Updates.reloadAsync()
+
+          /*
+          Toast.show({
+            type: 'info',
+            autoHide: false,
+            text1: 'Clique aqui para atualizar o app',
+            async onPress() {
+              await Updates.reloadAsync()
+            }
+          })
+          */
         }
       })
     })

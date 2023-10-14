@@ -11,12 +11,12 @@ function useUpdateApp() {
 
                 const update = await Updates.fetchUpdateAsync()
 
-                return { isAvailable: true, update }
+                return update
             } else {
-                return { isAvailable: false }
+                return false
             }
         } else {
-            return { isAvailable: false }
+            return false
         }
     }
 
