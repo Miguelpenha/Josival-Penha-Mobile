@@ -7,18 +7,18 @@ function useUpdateApp() {
         if (process.env.NODE_ENV === 'production') {
             const { isAvailable } = await Updates.checkForUpdateAsync()
 
-            if (isAvailable && Updates.releaseChannel === 'main') {
+            if (isAvailable && (Updates.releaseChannel === 'production' || Updates.releaseChannel === 'main')) {
                 console.log(green('>> Update Available'))
 
-                await Updates.fetchUpdateAsync()
-
-                Toast.show({
-                    type: 'info',
-                    autoHide: false,
-                    text1: 'Há atualizações disponíveis',
-                    async onPress() {
-                        await Updates.reloadAsync()
-                    }
+                Updates.fetchUpdateAsync().then(() => {
+                    Toast.show({
+                        type: 'info',
+                        autoHide: false,
+                        text1: 'Há atualizações disponíveis',
+                        async onPress() {
+                            await Updates.reloadAsync()
+                        }
+                    })
                 })
             }
         }
