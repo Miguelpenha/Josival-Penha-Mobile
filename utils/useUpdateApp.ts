@@ -3,7 +3,7 @@ import { green } from './colorsLogs'
 import Toast from 'react-native-toast-message'
 
 function useUpdateApp() {
-    async function updateApp() {
+    async function verifyUpdate() {
         if (process.env.NODE_ENV === 'production') {
             const { isAvailable } = await Updates.checkForUpdateAsync()
 
@@ -11,15 +11,6 @@ function useUpdateApp() {
                 console.log(green('>> Update Available'))
 
                 await Updates.fetchUpdateAsync()
-
-                Toast.show({
-                    type: 'info',
-                    autoHide: false,
-                    text1: 'Clique aqui para atualizar o app',
-                    async onPress() {
-                      await Updates.reloadAsync()
-                    }
-                })
 
                 return true
             } else {
@@ -30,7 +21,18 @@ function useUpdateApp() {
         }
     }
 
-    return updateApp
+    function updateApp() {
+        Toast.show({
+            type: 'info',
+            autoHide: false,
+            text1: 'Clique aqui para atualizar o app',
+            async onPress() {
+              await Updates.reloadAsync()
+            }
+        })
+    }
+
+    return { verifyUpdate, updateApp }
 }
 
 export default useUpdateApp

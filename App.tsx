@@ -14,13 +14,17 @@ import toastConfig from './utils/toastConfig'
 SplashScreen.preventAutoHideAsync()
 
 function App() {
-  const updateApp = useUpdateApp()
+  const { verifyUpdate, updateApp } = useUpdateApp()
 
   useEffect(() => {
-    SplashScreen.hideAsync().then(async () => {
-      console.log(green('>> App Started'))
+    verifyUpdate().then(update => {
+      SplashScreen.hideAsync().then(async () => {
+        console.log(green('>> App Started'))
 
-      await updateApp()
+        if (update) {
+          updateApp()
+        }
+      })
     })
   }, [])
 
