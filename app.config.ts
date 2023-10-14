@@ -43,5 +43,13 @@ export default ({ config }: ConfigContext) => ({
   },
   runtimeVersion: {
     policy: 'sdkVersion'
-  }
+  },
+  plugins: [
+    [
+      'expo-updates',
+      {
+        username: 'miguelpenha'
+      }
+    ]
+  ]
 } as ExpoConfig)

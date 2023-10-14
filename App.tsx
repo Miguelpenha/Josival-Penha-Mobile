@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import updateApp from './utils/updateApp'
+import useUpdateApp from './utils/useUpdateApp'
 import * as SplashScreen from 'expo-splash-screen'
 import { green } from './utils/colorsLogs'
 import { ThemeProvider } from 'styled-components'
@@ -13,12 +13,14 @@ import toastConfig from './utils/toastConfig'
 SplashScreen.preventAutoHideAsync()
 
 function App() {
-  useEffect(() => {
-    updateApp().then()
+  const updateApp = useUpdateApp()
 
-    SplashScreen.hideAsync().then(() => {
-      console.log(green('>> App Started'))
-    })
+  useEffect(() => {
+    updateApp().then(() => 
+      SplashScreen.hideAsync().then(() => 
+        console.log(green('>> App Started'))
+      )
+    )
   }, [])
 
   return (
