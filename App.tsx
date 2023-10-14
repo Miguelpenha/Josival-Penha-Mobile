@@ -17,15 +17,17 @@ function App() {
   const updateApp = useUpdateApp()
 
   useEffect(() => {
-    updateApp().then(update => {
+    updateApp().then(({ isAvailable, update }) => {
       SplashScreen.hideAsync().then(() => {
         console.log(green('>> App Started'))
 
-        if (update) {
+        // 'Clique aqui para atualizar o app'
+
+        if (isAvailable) {
           Toast.show({
             type: 'info',
             autoHide: false,
-            text1: 'Clique aqui para atualizar o app',
+            text1: JSON.stringify(update),
             async onPress() {
               await Updates.reloadAsync()
             }
