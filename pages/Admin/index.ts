@@ -7,6 +7,7 @@ import AdminSpreadsheets from './Spreadsheets'
 import AdminNotifyWhatsapp from './NotifyWhatsapp'
 import AdminNotifyWhatsappSend from './NotifyWhatsappSend'
 import AdminDocumentsDeclaration from './DocumentsDeclaration'
+import AdminDocumentsDeclarationFinancial from './DocumentsDeclarationFinancial'
 
 export {
     AdminHome,
@@ -17,5 +18,6 @@ export {
     AdminSpreadsheets,
     AdminNotifyWhatsapp,
     AdminNotifyWhatsappSend,
-    AdminDocumentsDeclaration
+    AdminDocumentsDeclaration,
+    AdminDocumentsDeclarationFinancial
 }

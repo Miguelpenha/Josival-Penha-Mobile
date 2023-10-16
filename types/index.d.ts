@@ -35,4 +35,7 @@ export type INavigation = {
   AdminDocumentsDeclaration: {
     studentID: string
   }
+  AdminDocumentsDeclarationFinancial: {
+    studentID: string
+  }
 }
