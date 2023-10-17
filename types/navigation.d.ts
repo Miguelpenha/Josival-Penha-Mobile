@@ -1,0 +1,33 @@
+type INavigation = {
+    Home: undefined
+    Settings: undefined
+    AdminHome: undefined
+    TeacherHome: undefined
+    AdminNotify: undefined
+    NotConnected: undefined
+    AdminStudent: undefined
+    AdminDocuments: undefined
+    AdminNotifyEmail: undefined
+    AdminSpreadsheets: undefined
+    AdminNotifyWhatsapp: undefined
+    AdminNotifyWhatsappSend: {
+      studentID: string
+    }
+    Sign: {
+      type: ITypeLogin
+    }
+    Login: {
+      type: ITypeLogin
+    }
+    SelectStudent: {
+      next: keyof INavigation
+    }
+    AdminDocumentsDeclaration: {
+      studentID: string
+    }
+    AdminDocumentsDeclarationFinancial: {
+      studentID: string
+    }
+}
+
+export default INavigation

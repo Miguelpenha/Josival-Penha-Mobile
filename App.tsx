@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 import useUpdateApp from './utils/useUpdateApp'
 import * as SplashScreen from 'expo-splash-screen'
 import { green } from './utils/colorsLogs'
-import * as Updates from 'expo-updates'
 import { ThemeProvider } from 'styled-components'
 import theme from './theme'
+import { IsConnectedProvider } from './contexts/isConnectedContext'
 import { AuthProvider } from './contexts/authContext'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import Routes from './routes'
@@ -26,12 +26,14 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <AuthProvider>
-        <GestureHandlerRootView style={{ flex: 1 }}>
-          <Routes/>
-          <Toast config={toastConfig} onPress={() => Toast.hide()}/>
-        </GestureHandlerRootView>
-      </AuthProvider>
+      <IsConnectedProvider>
+        <AuthProvider>
+          <GestureHandlerRootView style={{ flex: 1 }}>
+            <Routes/>
+            <Toast config={toastConfig} onPress={() => Toast.hide()}/>
+          </GestureHandlerRootView>
+        </AuthProvider>
+      </IsConnectedProvider>
     </ThemeProvider>
   )
 }

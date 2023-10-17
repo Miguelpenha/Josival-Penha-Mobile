@@ -1,4 +1,5 @@
 import { useTheme } from 'styled-components'
+import useIsConnected from '../contexts/isConnectedContext'
 import useAuth from '../contexts/authContext'
 import { StatusBar } from 'expo-status-bar'
 import { NavigationContainer } from '@react-navigation/native'
@@ -9,6 +10,7 @@ import InitialStack from './InitialStack'
 
 function Routes() {
   const theme = useTheme()
+  const { isConnected } = useIsConnected()
   const { adminIndex, teacherID } = useAuth()
 
   return (
@@ -19,8 +21,12 @@ function Routes() {
         backgroundColor={theme.backgroundColor}
       />
       <NavigationContainer theme={themeRouter}>
-        {adminIndex ? <AdminStack/> : (
-          teacherID ? <TeacherStack/> : <InitialStack/>
+        {isConnected === false ? (
+          <InitialStack initialRoute="NotConnected"/>
+        ) : (
+          adminIndex ? <AdminStack/> : (
+            teacherID ? <TeacherStack/> : <InitialStack/>
+          )
         )}
       </NavigationContainer>
     </>
