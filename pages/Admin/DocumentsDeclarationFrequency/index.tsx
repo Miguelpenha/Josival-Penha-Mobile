@@ -2,7 +2,7 @@ import ContainerDefault from '../../../components/ContainerDefault'
 import HeaderBack from '../../../components/HeaderBack'
 import Form from './Form'
 
-function DocumentsDeclaration() {
+function DocumentsDeclarationFrequency() {
   return (
     <ContainerDefault>
       <HeaderBack>Gerar declaração</HeaderBack>
@@ -11,4 +11,4 @@ function DocumentsDeclaration() {
   )
 }
 
-export default DocumentsDeclaration
+export default DocumentsDeclarationFrequency

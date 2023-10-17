@@ -12,14 +12,7 @@ function Documents() {
     <ContainerDefault scroll>
       <HeaderBack>Documentos</HeaderBack>
       <Container>
-        <Button index={1} title="Declaração de frequência" onPress={() => navigation.navigate('SelectStudent', {
-          next: 'AdminDocumentsDeclaration'
-        })}>
-          <Icon icon="article" typeIcon="MaterialIcons"/>
-        </Button>
-        <Button index={2} title="Declaração financeira" onPress={() => navigation.navigate('SelectStudent', {
-          next: 'AdminDocumentsDeclarationFinancial'
-        })}>
+        <Button index={1} title="Declarações" onPress={() => navigation.navigate('AdminDocumentsDeclarations')}>
           <Icon icon="article" typeIcon="MaterialIcons"/>
         </Button>
       </Container>

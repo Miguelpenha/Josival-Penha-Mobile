@@ -10,6 +10,7 @@ type INavigation = {
     AdminNotifyEmail: undefined
     AdminSpreadsheets: undefined
     AdminNotifyWhatsapp: undefined
+    AdminDocumentsDeclarations: undefined
     AdminNotifyWhatsappSend: {
       studentID: string
     }
@@ -22,7 +23,7 @@ type INavigation = {
     SelectStudent: {
       next: keyof INavigation
     }
-    AdminDocumentsDeclaration: {
+    AdminDocumentsDeclarationFrequency: {
       studentID: string
     }
     AdminDocumentsDeclarationFinancial: {
