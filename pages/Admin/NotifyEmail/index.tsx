@@ -12,7 +12,9 @@ function NotifyEmail() {
     <ContainerDefault scroll>
       <HeaderBack>Notificar</HeaderBack>
       <Container>
-        
+        <Button index={1} title="Aviso" onPress={() => navigation.navigate('AdminNotifyEmailNotice')}>
+          <Icon icon="notes"/>
+        </Button>
       </Container>
     </ContainerDefault>
   )

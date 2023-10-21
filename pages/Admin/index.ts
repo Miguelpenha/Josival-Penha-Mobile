@@ -5,6 +5,7 @@ import AdminDocuments from './Documents'
 import AdminNotifyEmail from './NotifyEmail'
 import AdminSpreadsheets from './Spreadsheets'
 import AdminNotifyWhatsapp from './NotifyWhatsapp'
+import AdminNotifyEmailNotice from './NotifyEmailNotice'
 import AdminNotifyWhatsappSend from './NotifyWhatsappSend'
 import AdminDocumentsDeclarations from './DocumentsDeclarations'
 import AdminDocumentsDeclarationFrequency from './DocumentsDeclarationFrequency'
@@ -18,6 +19,7 @@ export {
     AdminNotifyEmail,
     AdminSpreadsheets,
     AdminNotifyWhatsapp,
+    AdminNotifyEmailNotice,
     AdminNotifyWhatsappSend,
     AdminDocumentsDeclarations,
     AdminDocumentsDeclarationFrequency,
