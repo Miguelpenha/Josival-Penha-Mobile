@@ -5,7 +5,7 @@
   "scripts": {
     "start": "expo start",
     "update": "eas update --auto",
-    "build": "eas build --profile main --platform android"
+    "build": "eas build --profile production --platform android"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
