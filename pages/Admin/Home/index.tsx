@@ -20,13 +20,16 @@ function Home() {
       })}>
         <Icon icon="school" typeIcon="MaterialIcons"/>
       </Button>
-      <ButtonSpreadsheet index={2} title="Planilhas" onPress={() => navigation.navigate('AdminSpreadsheets')}>
+      <Button index={3} title="Receitas" onPress={() => navigation.navigate('AdminIncomes')}>
+        <Icon icon="payments"/>
+      </Button>
+      <ButtonSpreadsheet index={4} title="Planilhas" onPress={() => navigation.navigate('AdminSpreadsheets')}>
         <Icon icon="google-spreadsheet" typeIcon="MaterialCommunityIcons"/>
       </ButtonSpreadsheet>
-      <Button index={3} title="Documentos" onPress={() => navigation.navigate('AdminDocuments')}>
+      <Button index={5} title="Documentos" onPress={() => navigation.navigate('AdminDocuments')}>
         <Icon icon="description" typeIcon="MaterialIcons"/>
       </Button>
-      <Button index={4} title="Notificar" onPress={() => navigation.navigate('AdminNotify')}>
+      <Button index={6} title="Notificar" onPress={() => navigation.navigate('AdminNotify')}>
         <Icon icon="notifications" typeIcon="MaterialIcons"/>
       </Button>
     </ContainerDefault>

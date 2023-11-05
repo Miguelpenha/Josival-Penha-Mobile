@@ -1,6 +1,8 @@
 import AdminHome from './Home'
+import AdminIncome from './Income'
 import AdminNotify from './Notify'
 import AdminStudent from './Student'
+import AdminIncomes from './Incomes'
 import AdminDocuments from './Documents'
 import AdminNotifyEmail from './NotifyEmail'
 import AdminSpreadsheets from './Spreadsheets'
@@ -13,7 +15,9 @@ import AdminDocumentsDeclarationFinancial from './DocumentsDeclarationFinancial'
 
 export {
     AdminHome,
+    AdminIncome,
     AdminNotify,
+    AdminIncomes,
     AdminStudent,
     AdminDocuments,
     AdminNotifyEmail,
