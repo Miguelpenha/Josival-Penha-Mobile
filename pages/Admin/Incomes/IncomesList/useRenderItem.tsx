@@ -9,6 +9,7 @@ function useRenderItem(search: string) {
     function renderItem({ item: income, index }: ListRenderItemInfo<IIncome>) {
         const searchIncludePayDate = income.payDate.toUpperCase().includes(search.toUpperCase())
         const searchIncludeValue = income.value.toUpperCase().includes(search.toUpperCase())
+        const searchIncludeValueRaw = income.valueRaw.toString().toUpperCase().includes(search.toUpperCase())
         const searchIncludeStudentName = income.student.name.toUpperCase().includes(search.toUpperCase())
 
         function handlePress() {
@@ -17,7 +18,7 @@ function useRenderItem(search: string) {
             })
         }
 
-        if (searchIncludePayDate || searchIncludeValue || searchIncludeStudentName) {
+        if (searchIncludePayDate || searchIncludeValue || searchIncludeValueRaw || searchIncludeStudentName) {
             return (
                 <Income onPress={handlePress} index={index} income={income}/>
             )

@@ -5,6 +5,7 @@ import AdminStudent from './Student'
 import AdminIncomes from './Incomes'
 import AdminDocuments from './Documents'
 import AdminNotifyEmail from './NotifyEmail'
+import AdminCreateIncome from './CreateIncome'
 import AdminSpreadsheets from './Spreadsheets'
 import AdminNotifyWhatsapp from './NotifyWhatsapp'
 import AdminNotifyEmailNotice from './NotifyEmailNotice'
@@ -21,6 +22,7 @@ export {
     AdminStudent,
     AdminDocuments,
     AdminNotifyEmail,
+    AdminCreateIncome,
     AdminSpreadsheets,
     AdminNotifyWhatsapp,
     AdminNotifyEmailNotice,

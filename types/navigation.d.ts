@@ -16,6 +16,9 @@ type INavigation = {
     AdminIncome: {
       incomeID: string
     }
+    AdminCreateIncome: {
+      studentID: string
+    }
     AdminNotifyWhatsappSend: {
       studentID: string
     }
