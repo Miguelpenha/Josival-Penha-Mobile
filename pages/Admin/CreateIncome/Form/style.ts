@@ -7,6 +7,7 @@ export const Container = styled(Animated.View)`
     padding: 2%;
     padding-top: 5%;
     margin-top: 10%;
+    margin-bottom: 20%;
     align-self: center;
     border-radius: 10px;
     background-color: ${props => props.theme.backgroundColorSecondary};
