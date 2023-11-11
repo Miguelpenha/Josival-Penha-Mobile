@@ -10,10 +10,7 @@ function useUpdateApp() {
             Toast.show({
                 type: 'info',
                 autoHide: false,
-                text1: `${isAvailable ? 'Tem' : 'Não tem'}`,
-                async onPress() {
-                  await Updates.reloadAsync()
-                }
+                text1: `${isAvailable ? 'Tem' : 'Não tem'}`
             })
 
             if (isAvailable) {
