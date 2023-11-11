@@ -16,7 +16,7 @@
       "android": {
         "gradleCommand": ":app:assembleRelease"
       },
-      "channel": "production"
+      "channel": "main"
     }
   }
 }
