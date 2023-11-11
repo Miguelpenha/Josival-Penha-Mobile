@@ -1,3 +1,3 @@
-const methods = ['Pix', 'Crédito', 'Débito', 'Físico', 'Transação Bancaria', 'Boleto']
+const methods = ['Dinheiro', 'Pix', 'Crédito', 'Débito', 'Boleto']
 
 export default methods

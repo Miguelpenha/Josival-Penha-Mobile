@@ -34,8 +34,8 @@ const Form: FC<IProps> = ({ student }) => {
         payMethod,
         billingDate,
     })
-    const { modalize: modalizeOptionsMethods, props: propsModalizeOptionsMethods } = useModalize(90, 0, true)
-    const { modalize: modalizeOptionsCategories, props: propsModalizeOptionsCategories } = useModalize(90, 0, true)
+    const { modalize: modalizeOptionsMethods, props: propsModalizeOptionsMethods } = useModalize(70, 0, true)
+    const { modalize: modalizeOptionsCategories, props: propsModalizeOptionsCategories } = useModalize(75, 0, true)
 
     return (
         <Container entering={FadeInDown.delay(200).duration(400)}>

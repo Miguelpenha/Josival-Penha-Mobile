@@ -1,7 +1,7 @@
 import { RefObject, Dispatch, SetStateAction, FC } from 'react'
 import { IHandles } from 'react-native-modalize/lib/options'
 import { Title } from './style'
-import Button from '../../../../../components/Button'
+import Option from './Option'
 
 interface IProps {
     options: string[]
@@ -20,7 +20,9 @@ const ModalizeOptions: FC<IProps> = ({ setOption, modalize, options }) => {
         <>
             <Title>Escolha uma opção</Title>
             {options.map((option, index) => (
-                <Button key={index} title={option} index={index} onPress={() => handlePress(option)}/>
+                <Option key={index} index={index} onPress={() => handlePress(option)}>
+                    {option}
+                </Option>
             ))}
         </>
     )
