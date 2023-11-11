@@ -13,7 +13,6 @@ function useUpdateApp() {
                 text1: `${isAvailable ? 'Tem' : 'Não tem'}`
             })
             
-
             if (isAvailable) {
                 console.log(green('>> Update Available'))
 
