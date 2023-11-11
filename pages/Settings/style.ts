@@ -2,7 +2,7 @@ import styled from 'styled-components/native'
 import Animated from 'react-native-reanimated'
 import { RFPercentage } from 'react-native-responsive-fontsize'
 import { TouchableOpacity } from 'react-native'
-import Button from '../../components/Button'
+import ButtonRaw from '../../components/Button'
 
 export const Container = styled.View`
     margin-top: 5%;
@@ -31,7 +31,11 @@ export const Data = styled.Text`
     color: ${props => props.theme.secondaryColor};
 `
 
-export const ButtonLogout = styled(Button)`
+export const Button = styled(ButtonRaw)`
     margin-top: 15%;
+`
+
+export const ButtonLogout = styled(ButtonRaw)`
+    margin-top: 5%;
     background-color: red;
 `

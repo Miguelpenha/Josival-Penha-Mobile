@@ -2,12 +2,13 @@ import useModalize from '../../components/useModalize'
 import useAdmin from '../../components/useAdmin'
 import useTeacher from '../../components/useTeacher'
 import useAnimation from './useAnimation'
+import useUpdateApp from '../../utils/useUpdateApp'
 import useType from '../../components/useType'
 import * as Clipboard from 'expo-clipboard'
 import toast from 'react-native-toast-message'
 import ContainerDefault from '../../components/ContainerDefault'
 import HeaderBack from '../../components/HeaderBack'
-import { Container, ContainerData, Label, Data, ButtonLogout } from './style'
+import { Container, ContainerData, Label, Data, Button, ButtonLogout } from './style'
 import { FadeInDown } from 'react-native-reanimated'
 import Icon from '../../components/Icon'
 import { Modalize } from 'react-native-modalize'
@@ -19,6 +20,7 @@ function Settings() {
   const admin = useAdmin()
   const teacher = useTeacher()
   const animation = useAnimation(async () => await handleCopy(admin || teacher))
+  const updateApp = useUpdateApp()
   const type = useType()
   
   async function handleCopy(value: string | false) {
@@ -32,6 +34,17 @@ function Settings() {
     }
   }
 
+  async function handleUpdate() {
+    const update = await updateApp()
+
+    if (!update) {
+      toast.show({
+        type: 'info',
+        text1: 'Não há atualizações disponíveis'
+      })
+    }
+  }
+
   return <>
     <ContainerDefault scroll>
       <HeaderBack>Configurações</HeaderBack>
@@ -41,7 +54,10 @@ function Settings() {
             <ContainerData activeOpacity={0.5} {...animation}>
               <Data>{admin || teacher}</Data>
             </ContainerData>
-            <ButtonLogout index={1} title="Logout" onPress={modalizeLogout.open}>
+            <Button index={1} loading title="Atualizações" onPress={handleUpdate}>
+              <Icon icon="sync"/>
+            </Button>
+            <ButtonLogout index={2} title="Logout" onPress={modalizeLogout.open}>
               <Icon icon="logout"/>
             </ButtonLogout>
         </> : <Loading/>}
