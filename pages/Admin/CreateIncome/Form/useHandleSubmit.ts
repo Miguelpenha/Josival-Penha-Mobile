@@ -12,7 +12,10 @@ function useHandleSubmit(data: IData) {
         const { created } = (await apiBase.post<IResponse>('/incomes', data)).data
 
         if (created) {
-            navigation.navigate('AdminHome')
+            navigation.reset({
+                index: 1,
+                routes: [{ name: 'AdminHome' }, { name: 'AdminIncomes' }]
+            })
 
             toast.show({
                 type: 'success',

@@ -1,9 +1,11 @@
+import { RefObject, Dispatch, SetStateAction } from 'react'
+import { IHandles } from 'react-native-modalize/lib/options'
+import IIncome from '../../../../types/income'
 import { useNavigation } from '@react-navigation/native'
 import { ListRenderItemInfo } from '@shopify/flash-list'
-import IIncome from '../../../../types/income'
 import Income from './Income'
 
-function useRenderItem(search: string) {
+function useRenderItem(search: string, modalizeOptions: RefObject<IHandles>, setIncome: Dispatch<SetStateAction<IIncome>>) {
     const navigation = useNavigation()
 
     function renderItem({ item: income, index }: ListRenderItemInfo<IIncome>) {
@@ -20,7 +22,11 @@ function useRenderItem(search: string) {
 
         if (searchIncludePayDate || searchIncludeValue || searchIncludeValueRaw || searchIncludeStudentName) {
             return (
-                <Income onPress={handlePress} index={index} income={income}/>
+                <Income onLongPress={async () => {
+                    setIncome(income)
+
+                    modalizeOptions.current.open()
+                }} onPress={handlePress} index={index} income={income}/>
             )
         }
     }
