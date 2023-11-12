@@ -6,12 +6,6 @@ function useUpdateApp() {
     async function updateApp() {
         if (process.env.NODE_ENV === 'production') {
             const { isAvailable } = await Updates.checkForUpdateAsync()
-
-            Toast.show({
-                type: 'info',
-                autoHide: false,
-                text1: `${isAvailable ? 'Tem' : 'Não tem'}`
-            })
             
             if (isAvailable) {
                 console.log(green('>> Update Available'))

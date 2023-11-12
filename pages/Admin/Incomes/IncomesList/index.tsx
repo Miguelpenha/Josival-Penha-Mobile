@@ -16,7 +16,7 @@ interface IProps {
 
 const IncomesList: FC<IProps> = ({ search }) => {
     const { data: incomesRaw, mutate } = api.get<IIncome[]>('/incomes?student=true')
-    const { modalize: modalizeOptions, props: propsModalizeOptions } = useModalize(40)
+    const { modalize: modalizeOptions, props: propsModalizeOptions } = useModalize(50)
     const [income, setIncome] = useState<IIncome>()
     const renderItem = useRenderItem(search, modalizeOptions.ref, setIncome)
     const refreshProps = useRefreshProps(mutate)

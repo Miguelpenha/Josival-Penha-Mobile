@@ -2,7 +2,7 @@ import IIncome from '../../../../../types/income'
 import { RefObject, FC } from 'react'
 import { IHandles } from 'react-native-modalize/lib/options'
 import { KeyedMutator } from 'swr'
-import { ButtonCancel } from './style'
+import { Container, ButtonCancel } from './style'
 import Icon from '../../../../../components/Icon'
 import Button from '../../../../../components/Button'
 import useHandleDeleteIncome from './useHandleDeleteIncome'
@@ -17,7 +17,7 @@ const ModalizeOptions: FC<IProps> = ({ income, mutate, modalize }) => {
     const handleDeleteIncome = useHandleDeleteIncome(income._id, mutate)
 
     return (
-        <>
+        <Container>
             <ButtonCancel title="Deletar" onPress={async () => {
                 modalize.current.close()
 
@@ -28,7 +28,7 @@ const ModalizeOptions: FC<IProps> = ({ income, mutate, modalize }) => {
             <Button title="Editar" onPress={modalize.current.close} index={2}>
                 <Icon icon="edit"/>
             </Button>
-        </>
+        </Container>
     )
 }
 
