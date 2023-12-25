@@ -2,13 +2,14 @@ import { useNavigation } from '@react-navigation/native'
 import base from '../../../services/api/base'
 import Toast from 'react-native-toast-message'
 
-function useHandleSendMessage(email: string, title: string, text: string) {
+function useHandleSendMessage(email: string, title: string, text: string, action: { text: string, link: string }) {
   const navigation = useNavigation()
 
   async function handleSendMessage() {
-    const { data } = await base.post<{ send: boolean }>(`/notify/email/${email}`, {
+    const { data } = await base.post<{ send: boolean }>(`/notify/email/send/${email}`, {
       text,
-      title
+      title,
+      action
     })
 
     if (data.send) {

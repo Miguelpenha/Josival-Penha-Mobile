@@ -1,7 +1,7 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import { INavigation } from '../types'
 import Settings from '../pages/Settings'
-import { AdminHome, AdminIncome, AdminNotify, AdminIncomes, AdminStudent, AdminDocuments, AdminNotifyEmail, AdminCreateIncome, AdminSpreadsheets, AdminNotifyWhatsapp, AdminNotifyEmailNotice, AdminNotifyWhatsappSend, AdminDocumentsDeclarations, AdminDocumentsDeclarationFrequency, AdminDocumentsDeclarationFinancial } from '../pages/Admin'
+import { AdminHome, AdminIncome, AdminNotify, AdminIncomes, AdminStudent, AdminDocuments, AdminNotifyEmail, AdminCreateIncome, AdminSpreadsheets, AdminNotifyWhatsapp, AdminNotifyWhatsappSend, AdminDocumentsDeclarations, AdminNotifyEmailNoticePayment, AdminDocumentsDeclarationFrequency, AdminDocumentsDeclarationFinancial } from '../pages/Admin'
 import SelectStudent from '../pages/SelectStudent'
 
 function AdminStack() {
@@ -26,9 +26,9 @@ function AdminStack() {
             <Screen name="AdminCreateIncome" component={AdminCreateIncome}/>
             <Screen name="AdminSpreadsheets" component={AdminSpreadsheets}/>
             <Screen name="AdminNotifyWhatsapp" component={AdminNotifyWhatsapp}/>
-            <Screen name="AdminNotifyEmailNotice" component={AdminNotifyEmailNotice}/>
             <Screen name="AdminNotifyWhatsappSend" component={AdminNotifyWhatsappSend}/>
             <Screen name="AdminDocumentsDeclarations" component={AdminDocumentsDeclarations}/>
+            <Screen name="AdminNotifyEmailNoticePayment" component={AdminNotifyEmailNoticePayment}/>
             <Screen name="AdminDocumentsDeclarationFrequency" component={AdminDocumentsDeclarationFrequency}/>
             <Screen name="AdminDocumentsDeclarationFinancial" component={AdminDocumentsDeclarationFinancial}/>
         </Navigator>

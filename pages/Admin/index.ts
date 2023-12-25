@@ -8,9 +8,9 @@ import AdminNotifyEmail from './NotifyEmail'
 import AdminCreateIncome from './CreateIncome'
 import AdminSpreadsheets from './Spreadsheets'
 import AdminNotifyWhatsapp from './NotifyWhatsapp'
-import AdminNotifyEmailNotice from './NotifyEmailNotice'
 import AdminNotifyWhatsappSend from './NotifyWhatsappSend'
 import AdminDocumentsDeclarations from './DocumentsDeclarations'
+import AdminNotifyEmailNoticePayment from './NotifyEmailNoticePayment'
 import AdminDocumentsDeclarationFrequency from './DocumentsDeclarationFrequency'
 import AdminDocumentsDeclarationFinancial from './DocumentsDeclarationFinancial'
 
@@ -25,9 +25,9 @@ export {
     AdminCreateIncome,
     AdminSpreadsheets,
     AdminNotifyWhatsapp,
-    AdminNotifyEmailNotice,
     AdminNotifyWhatsappSend,
     AdminDocumentsDeclarations,
+    AdminNotifyEmailNoticePayment,
     AdminDocumentsDeclarationFrequency,
     AdminDocumentsDeclarationFinancial
 }

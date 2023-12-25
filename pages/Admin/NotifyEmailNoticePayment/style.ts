@@ -2,7 +2,7 @@ import styled from 'styled-components/native'
 import Animated from 'react-native-reanimated'
 import { RFPercentage } from 'react-native-responsive-fontsize'
 
-export const Container = styled(Animated.View)`
+export const Form = styled(Animated.View)`
     width: 85%;
     padding: 2%;
     padding-top: 5%;
@@ -23,4 +23,14 @@ export const Label = styled.Text`
     font-weight: bold;
     font-size: ${RFPercentage(2.8)}px;
     color: ${props => props.theme.secondaryColor};
+`
+
+export const Preview = styled.View`
+    width: 85%;
+    elevation: 8;
+    margin-top: 10%;
+    overflow: hidden;
+    align-self: center;
+    border-radius: 5px;
+    margin-bottom: 10%;
 `

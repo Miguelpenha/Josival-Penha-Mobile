@@ -11,8 +11,8 @@ type INavigation = {
     AdminNotifyEmail: undefined
     AdminSpreadsheets: undefined
     AdminNotifyWhatsapp: undefined
-    AdminNotifyEmailNotice: undefined
     AdminDocumentsDeclarations: undefined
+    AdminNotifyEmailNoticePayment: undefined
     AdminIncome: {
       incomeID: string
     }
