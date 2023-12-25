@@ -6,25 +6,32 @@ function useHandleSendMessage(email: string, title: string, text: string, action
   const navigation = useNavigation()
 
   async function handleSendMessage() {
-    const { data } = await base.post<{ send: boolean }>(`/notify/email/send/${email}`, {
-      text,
-      title,
-      action
-    })
-
-    if (data.send) {
-      Toast.show({
-        type: 'success',
-        text1: 'Aviso enviado com sucesso!'
+    if (email) {
+      const { data } = await base.post<{ send: boolean }>(`/notify/email/send/${email}`, {
+        text,
+        title,
+        action
       })
-
-      navigation.reset({
-        routes: [{ name: 'AdminHome' }]
-      })
+  
+      if (data.send) {
+        Toast.show({
+          type: 'success',
+          text1: 'Aviso enviado com sucesso!'
+        })
+  
+        navigation.reset({
+          routes: [{ name: 'AdminHome' }]
+        })
+      } else {
+        Toast.show({
+          type: 'error',
+          text1: 'Houve um error ao enviar o aviso'
+        })
+      }
     } else {
       Toast.show({
         type: 'error',
-        text1: 'Houve um error ao enviar o aviso'
+        text1: 'O e-mail deve ser preenchido'
       })
     }
   }
