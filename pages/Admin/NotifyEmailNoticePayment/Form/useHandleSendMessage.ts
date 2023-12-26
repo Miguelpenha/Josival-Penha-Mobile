@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native'
-import base from '../../../services/api/base'
+import base from '../../../../services/api/base'
 import Toast from 'react-native-toast-message'
 
 function useHandleSendMessage(email: string, title: string, text: string, action: { text: string, link: string }) {
