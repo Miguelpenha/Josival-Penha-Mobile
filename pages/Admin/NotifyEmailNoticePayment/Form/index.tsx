@@ -1,11 +1,13 @@
 import { KeyedMutator } from 'swr'
-import { Dispatch, SetStateAction, FC, useState, useEffect } from 'react'
+import { Dispatch, SetStateAction, FC, useState, useEffect, memo } from 'react'
 import { useTheme } from 'styled-components'
 import useHandleSendMessage from './useHandleSendMessage'
 import { Container, Field, Label } from './style'
 import { FadeInDown } from 'react-native-reanimated'
 import Input from '../../../../components/Input'
 import ButtonSubmit from '../../../../components/ButtonSubmit'
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import { Keyboard } from 'react-native'
 
 interface IProps {
   text: string
@@ -29,6 +31,7 @@ const Form: FC<IProps> = ({ title, setTitle, text, setText, titleButton, setTitl
     }, [title, text, titleButton, linkButton])
 
     return (
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <Container entering={FadeInDown.delay(200).duration(400)}>
           <Field entering={FadeInDown.delay(300).duration(400)}>
               <Label>E-mail do aluno</Label>
@@ -96,7 +99,8 @@ const Form: FC<IProps> = ({ title, setTitle, text, setText, titleButton, setTitl
           </Field>
           <ButtonSubmit loading title="Enviar" onPress={handleSendMessage}/>
       </Container>
+    </TouchableWithoutFeedback>
     )
 }
 
-export default Form
+export default memo(Form)

@@ -1,7 +1,5 @@
-import { FC } from 'react'
-import { useWindowDimensions } from 'react-native'
-import { Container } from './style'
-import { FadeInDown } from 'react-native-reanimated'
+import { FC, memo } from 'react'
+import { ScrollView, useWindowDimensions } from 'react-native'
 import RenderHTML from 'react-native-render-html'
 
 interface IProps {
@@ -13,17 +11,17 @@ const Preview: FC<IProps> = ({ data }) => {
 
     if (data) {
         return (
-            <Container entering={FadeInDown.delay(600)}>
+            <ScrollView>
                 <RenderHTML
                     contentWidth={width}
                     source={{ html: data }}
                     renderersProps={{ img: { enableExperimentalPercentWidth: true } }}
                 />
-            </Container>
+            </ScrollView>
         )
     } else {
         return null
     }
 }
 
-export default Preview
+export default memo(Preview)
