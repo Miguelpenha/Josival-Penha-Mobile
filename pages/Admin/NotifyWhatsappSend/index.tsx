@@ -18,7 +18,6 @@ interface IParams {
 function NotifyWhatsappSend() {
   const { studentID } = useRoute().params as IParams
   const { data: student } = api.get<IStudent>(`/students/${studentID}`)
-  const [name, setName] = useState('')
   const [telephone, setTelephone] = useState('')
   const [month, setMonth] = useState(new Date().toLocaleDateString('pt-br').split('/')[1])
   const theme = useTheme()
@@ -26,7 +25,6 @@ function NotifyWhatsappSend() {
 
   useEffect(() => {
     if (student) {
-      setName(student.name)
       setTelephone(student.telephone)
     }
   }, [student])
@@ -36,19 +34,6 @@ function NotifyWhatsappSend() {
       <HeaderBack>Enviar boleto</HeaderBack>
       <Container entering={FadeInDown.delay(200).duration(400)}>
           <Field entering={FadeInDown.delay(300).duration(400)}>
-              <Label>Nome</Label>
-              <Input
-                  value={name}
-                  autoComplete="name"
-                  autoCapitalize="none"
-                  placeholder="Nome..."
-                  onChangeText={setName}
-                  cursorColor={theme.primary}
-                  selectionColor={theme.primary}
-                  placeholderTextColor={theme.primary}
-              />
-          </Field>
-          <Field entering={FadeInDown.delay(400).duration(400)}>
               <Label>Telefone</Label>
               <Input
                   value={telephone}

@@ -1,5 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import base from '../../../services/api/base'
+import * as Clipboard from 'expo-clipboard'
 import Toast from 'react-native-toast-message'
 
 function useHandleSendMessage(telephoneRaw: string) {
@@ -8,14 +9,16 @@ function useHandleSendMessage(telephoneRaw: string) {
   async function handleSendMessage() {
     const telephone = telephoneRaw.replace(/-/g, ' ').replace(/\(/g, '').replace(/\)/g, '').replace(/\s+/g, '').replace(/\+/g, '')
 
-    const { data } = await base.post<{ send: boolean }>(`/notify/whatsapp/whatsapp:${telephone}`, {
+    const { data } = await base.post<{ link: string }>(`/notify/whatsapp/${telephone.includes('55') ? telephone : `55${telephone}`}`, {
       month: '10'
     })
 
-    if (data.send) {
+    if (data.link) {
+      await Clipboard.setStringAsync(data.link)
+
       Toast.show({
         type: 'success',
-        text1: 'Boleto enviado com sucesso!'
+        text1: 'Link copiado para a sua área de transferência!'
       })
 
       navigation.reset({
@@ -24,7 +27,7 @@ function useHandleSendMessage(telephoneRaw: string) {
     } else {
       Toast.show({
         type: 'error',
-        text1: 'Houve um error ao enviar o boleto'
+        text1: 'Houve um error ao gerar o link'
       })
     }
   }
