@@ -10,7 +10,7 @@ async function login(body: IRequest, url: string, setValue: Dispatch<SetStateAct
     if (authenticated) {
         setValue(id)
 
-        await AsyncStorage.setItem(`@reportCard:${item}`, String(id))
+        await AsyncStorage.setItem(`@josivalPenha:${item}`, String(id))
 
         return { authenticated: true }
     } else {

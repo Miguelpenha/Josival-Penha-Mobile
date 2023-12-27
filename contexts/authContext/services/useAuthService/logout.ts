@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 async function logout(setValue: Dispatch<SetStateAction<any>>, item: string) {
     setValue(null)
 
-    await AsyncStorage.removeItem(`@reportCard:${item}`)
+    await AsyncStorage.removeItem(`@josivalPenha:${item}`)
 }
 
 export default logout
