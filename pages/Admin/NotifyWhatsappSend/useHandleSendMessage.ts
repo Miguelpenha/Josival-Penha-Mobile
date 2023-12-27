@@ -8,7 +8,7 @@ function useHandleSendMessage(telephoneRaw: string) {
   const navigation = useNavigation()
 
   async function handleSendMessage() {
-    const telephone = telephoneRaw.replace(/-/g, ' ').replace(/\(/g, '').replace(/\)/g, '').replace(/\s+/g, '').replace(/\+/g, '')
+    const telephone = telephoneRaw.replace(/[-()+ ]/g, '')
 
     const { data } = await base.post<{ link: string }>(`/notify/whatsapp/${telephone.includes('55') ? telephone : `55${telephone}`}`, {
       month: '10'
