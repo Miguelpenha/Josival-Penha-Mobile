@@ -2,6 +2,7 @@ import { useNavigation } from '@react-navigation/native'
 import base from '../../../services/api/base'
 import * as Clipboard from 'expo-clipboard'
 import Toast from 'react-native-toast-message'
+import * as Linking from 'expo-linking'
 
 function useHandleSendMessage(telephoneRaw: string) {
   const navigation = useNavigation()
@@ -14,11 +15,11 @@ function useHandleSendMessage(telephoneRaw: string) {
     })
 
     if (data.link) {
-      await Clipboard.setStringAsync(data.link)
+      await Linking.openURL(data.link)
 
       Toast.show({
         type: 'success',
-        text1: 'Link copiado para a sua área de transferência!'
+        text1: 'Conversa aberta no Whatsapp!'
       })
 
       navigation.reset({
