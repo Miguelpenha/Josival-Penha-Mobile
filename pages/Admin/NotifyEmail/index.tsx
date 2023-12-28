@@ -12,7 +12,9 @@ function NotifyEmail() {
     <ContainerDefault scroll>
       <HeaderBack>Notificar</HeaderBack>
       <Container>
-        <Button index={1} title="Aviso de pagamento" onPress={() => navigation.navigate('AdminNotifyEmailNoticePayment')}>
+        <Button index={1} title="Aviso de pagamento" onPress={() => (
+          navigation.navigate('SelectStudent', { next: 'AdminNotifyEmailNoticePayment' })
+        )}>
           <Icon icon="notes"/>
         </Button>
       </Container>

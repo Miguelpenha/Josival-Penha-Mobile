@@ -1,5 +1,6 @@
 import { KeyedMutator } from 'swr'
 import { Dispatch, SetStateAction, FC, useState, useEffect, memo } from 'react'
+import { useRoute } from '@react-navigation/native'
 import { useTheme } from 'styled-components'
 import useHandleSendMessage from './useHandleSendMessage'
 import { Container, Field, Label } from './style'
@@ -8,6 +9,8 @@ import Input from '../../../../components/Input'
 import ButtonSubmit from '../../../../components/ButtonSubmit'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import { Keyboard } from 'react-native'
+import api from '../../../../services/api'
+import IStudent from '../../../../types/student'
 
 interface IProps {
   text: string
@@ -21,8 +24,14 @@ interface IProps {
   setTitleButton: Dispatch<SetStateAction<string>>
 }
 
+interface IParams {
+  studentID: string
+}
+
 const Form: FC<IProps> = ({ title, setTitle, text, setText, titleButton, setTitleButton, linkButton, setLinkButton, mutate }) => {
-    const [email, setEmail] = useState('')
+    const { studentID } = useRoute().params as IParams
+    const { data: student } = api.get<IStudent>(`/students/${studentID}`)
+    const [email, setEmail] = useState(student ? (student.email || '') : '')
     const theme = useTheme()
     const handleSendMessage = useHandleSendMessage(email, title, text, { text: titleButton, link: linkButton })
 

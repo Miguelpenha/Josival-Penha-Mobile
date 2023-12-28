@@ -36,6 +36,10 @@ function NotifyEmailNoticePayment() {
     <ContainerDefault>
       <HeaderBack>Enviar aviso de pagamento</HeaderBack>
       <TabView
+        initialLayout={{ width }}
+        onIndexChange={setIndexTab}
+        renderTabBar={renderTabBar}
+        navigationState={{ index: indexTab, routes: [{ key: 'form', title: 'Escrever' }, { key: 'preview', title: 'Visualizar' }] }}
         renderScene={({ route }) => {
           switch (route.key) {
             case 'form':
@@ -45,11 +49,7 @@ function NotifyEmailNoticePayment() {
               default:
                 return null
               }
-            }}
-        initialLayout={{ width }}
-        onIndexChange={setIndexTab}
-        renderTabBar={renderTabBar}
-        navigationState={{ index: indexTab, routes: [{ key: 'form', title: 'Escrever' }, { key: 'preview', title: 'Visualizar' }] }}
+        }}
       />
     </ContainerDefault>
   )

@@ -12,7 +12,9 @@ type INavigation = {
     AdminSpreadsheets: undefined
     AdminNotifyWhatsapp: undefined
     AdminDocumentsDeclarations: undefined
-    AdminNotifyEmailNoticePayment: undefined
+    AdminNotifyEmailNoticePayment: {
+      studentID: string
+    }
     AdminIncome: {
       incomeID: string
     }
