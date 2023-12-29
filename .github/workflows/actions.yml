@@ -45,6 +45,7 @@ jobs:
       - name: Testing aplication
         run: npm test
   build:
+    needs: test
     name: EAS update android
     runs-on: ubuntu-latest
     steps:
