@@ -1,3 +1,4 @@
+import useModalize from '../../../components/useModalize'
 import { useRoute } from '@react-navigation/native'
 import api from '../../../services/api'
 import IStudent from '../../../types/student'
@@ -5,6 +6,8 @@ import ContainerDefault from '../../../components/ContainerDefault'
 import HeaderBack from '../../../components/HeaderBack'
 import { Container } from './style'
 import Field from './Field'
+import { Modalize } from 'react-native-modalize'
+import ModalizeOptions from './ModalizeOptions'
 import Loading from '../../../components/Loading'
 
 interface IParams {
@@ -12,12 +15,13 @@ interface IParams {
 }
 
 function Student() {
+  const { modalize: modalizeOptions, props: propsModalizeOptions } = useModalize(40, 0, true)
   const { studentID } = useRoute().params as IParams
-  const { data: student } = api.get<IStudent>(`/students/${studentID}?class=true&address=true`)
+  const { data: student, mutate } = api.get<IStudent>(`/students/${studentID}?class=true&address=true`)
 
   return (
     <ContainerDefault scroll>
-      <HeaderBack>Aluno</HeaderBack>
+      <HeaderBack iconSecondary="more-vert" onPressSecondary={modalizeOptions.open}>Aluno</HeaderBack>
       <Container>
         {student ? <>
           <Field label="Nome" index={1} value={student.name}/>
@@ -36,6 +40,9 @@ function Student() {
           <Field label="Rua" index={14} value={student.address && student.address.street}/>
           <Field label="Número da casa" index={15} value={student.address && String(student.address.number)}/>
           <Field label="Complemento da casa" index={16} value={student.address && student.address.complement}/>
+          <Modalize {...propsModalizeOptions}>
+            <ModalizeOptions mutate={mutate} student={student} modalize={modalizeOptions.ref}/>
+          </Modalize>
         </> : <Loading/>}
       </Container>
     </ContainerDefault>

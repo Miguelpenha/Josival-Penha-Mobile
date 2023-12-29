@@ -31,16 +31,16 @@ export const Title = styled.Text<ITitle>`
     color: ${props => props.theme[props.color] || props.color};
 `
 
-export const ContainerIconSettings = styled.TouchableOpacity`
+export const ContainerIconSecondary = styled.TouchableOpacity`
     left: 88%;
     position: absolute;
     align-self: flex-end;
 `
 
-interface IIconSettings {
+interface IIconSecondary {
     color: string
 }
 
-export const IconSettings = styled(MaterialIcons)<IIconSettings>`
+export const IconSecondary = styled(MaterialIcons)<IIconSecondary>`
     color: ${props => props.theme[props.color] || props.color}
 `
