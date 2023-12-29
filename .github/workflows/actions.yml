@@ -3,8 +3,10 @@ on: push
 
 jobs:
   test: 
-    name: Testing
+    name: Testing aplication
     runs-on: ubuntu-latest
+    outputs:
+      default-runner: ${{ runner.name }}
     steps:
       - name: Check for ENV_FILE
         run: |
@@ -42,12 +44,12 @@ jobs:
           touch .env
           echo "${{ secrets.ENV_FILE}}" >> .env
       
-      - name: Testing aplication
+      - name: Testing
         run: npm test
   build:
     needs: test
     name: EAS update android
-    runs-on: ubuntu-latest
+    runs-on: ${{ needs.test.outputs.default-runner }}
     steps:
       - name: Check for EXPO_TOKEN
         run: |
@@ -86,7 +88,7 @@ jobs:
             ${{ runner.os }}-node-
       
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Create .env File
         run: |
