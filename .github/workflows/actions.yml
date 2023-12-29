@@ -4,7 +4,7 @@ on: push
 jobs:
   test: 
     name: Testing aplication
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, ubuntu-latest]
     outputs:
       default-runner: ${{ runner.name }}
     steps:
