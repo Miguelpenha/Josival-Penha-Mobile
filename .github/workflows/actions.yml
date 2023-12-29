@@ -4,9 +4,7 @@ on: push
 jobs:
   test: 
     name: Testing aplication
-    runs-on: [self-hosted, ubuntu-latest]
-    outputs:
-      default-runner: ${{ runner.name }}
+    runs-on: ubuntu-latest
     steps:
       - name: Check for ENV_FILE
         run: |
@@ -49,7 +47,7 @@ jobs:
   build:
     needs: test
     name: EAS update android
-    runs-on: ${{ needs.test.outputs.default-runner }}
+    runs-on: ubuntu-latest
     steps:
       - name: Check for EXPO_TOKEN
         run: |
