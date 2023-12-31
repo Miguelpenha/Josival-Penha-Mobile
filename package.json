@@ -50,12 +50,12 @@
     "swr": "^2.2.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.6",
+    "@babel/core": "^7.23.7",
     "@types/axios": "^0.14.0",
     "@types/dotenv": "^8.2.0",
     "@types/expo": "^33.0.1",
     "@types/jest": "^29.5.11",
-    "@types/node": "^18.19.3",
+    "@types/node": "^18.19.4",
     "@types/react": "~18.2.14",
     "@types/react-dom": "~18.0.8",
     "@types/react-native": "^0.70.19",
