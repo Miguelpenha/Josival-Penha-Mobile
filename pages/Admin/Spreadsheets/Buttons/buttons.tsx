@@ -8,7 +8,7 @@ interface IButton {
     onPress: () => void
 }
 
-const filtersGeneralSpreadsheet = ['Alunos', 'Turmas', 'Professoras', 'Financeiro']
+const filtersGeneralSpreadsheet = ['Alunos', 'Turmas', 'Professoras', 'Receitas']
 
 const buttons: IButton[] = [
     {
@@ -28,9 +28,9 @@ const buttons: IButton[] = [
         onPress: async () => await generateSpreadsheet('Alunos', 'Planilha de alunos')
     },
     {
-        title: 'Financeiro',
+        title: 'Receitas',
         icon: 'account-balance',
-        onPress: async () => await generateSpreadsheet('Financeiro', 'Planilha de financeiro')
+        onPress: async () => await generateSpreadsheet('Financeiro', 'Planilha de receitas')
     },
     {
         title: 'Geral',
