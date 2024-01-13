@@ -20,6 +20,11 @@ function DocumentsDeclarations() {
       })}>
         <Icon icon="article" typeIcon="MaterialIcons"/>
       </Button>
+      <Button index={3} title="Provisória de transferência" onPress={() => navigation.navigate('SelectStudent', {
+        next: 'AdminDocumentsDeclarationProvisionalTransfer'
+      })}>
+        <Icon icon="article" typeIcon="MaterialIcons"/>
+      </Button>
     </ContainerDefault>
   )
 }

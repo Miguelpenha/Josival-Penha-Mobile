@@ -12,8 +12,14 @@ type INavigation = {
     AdminSpreadsheets: undefined
     AdminNotifyWhatsapp: undefined
     AdminDocumentsDeclarations: undefined
-    AdminNotifyEmailNoticePayment: {
-      studentID: string
+    Sign: {
+      type: ITypeLogin
+    }
+    Login: {
+      type: ITypeLogin
+    }
+    SelectStudent: {
+      next: keyof INavigation
     }
     AdminIncome: {
       incomeID: string
@@ -24,19 +30,16 @@ type INavigation = {
     AdminNotifyWhatsappSend: {
       studentID: string
     }
-    Sign: {
-      type: ITypeLogin
-    }
-    Login: {
-      type: ITypeLogin
-    }
-    SelectStudent: {
-      next: keyof INavigation
+    AdminNotifyEmailNoticePayment: {
+      studentID: string
     }
     AdminDocumentsDeclarationFrequency: {
       studentID: string
     }
     AdminDocumentsDeclarationFinancial: {
+      studentID: string
+    }
+    AdminDocumentsDeclarationProvisionalTransfer: {
       studentID: string
     }
 }

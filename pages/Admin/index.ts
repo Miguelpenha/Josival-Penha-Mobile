@@ -13,6 +13,7 @@ import AdminDocumentsDeclarations from './DocumentsDeclarations'
 import AdminNotifyEmailNoticePayment from './NotifyEmailNoticePayment'
 import AdminDocumentsDeclarationFrequency from './DocumentsDeclarationFrequency'
 import AdminDocumentsDeclarationFinancial from './DocumentsDeclarationFinancial'
+import AdminDocumentsDeclarationProvisionalTransfer from './DocumentsDeclarationProvisionalTransfer'
 
 export {
     AdminHome,
@@ -29,5 +30,6 @@ export {
     AdminDocumentsDeclarations,
     AdminNotifyEmailNoticePayment,
     AdminDocumentsDeclarationFrequency,
-    AdminDocumentsDeclarationFinancial
+    AdminDocumentsDeclarationFinancial,
+    AdminDocumentsDeclarationProvisionalTransfer
 }
